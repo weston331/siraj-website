@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>قراءة الأدعية والزيارات - سِراج الأطهار</title>
+    <meta name="description" id="meta-description" content="مكتبة شاملة لقراءة الأدعية والمناجاة والزيارات بالتشكيل الكامل وخط عربي واضح مع فضل ومصدر كل دعاء من تطبيق سِراج الأطهار.">
+    <meta name="keywords" id="meta-keywords" content="أدعية, زيارات, مناجاة, دعاء كميل, دعاء الصباح, دعاء الأربعاء, مفاتيح الجنان, الصحيفة السجادية, سراج الأطهار">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="سِراج الأطهار">
+    <meta name="theme-color" content="#001A3F">
+    <link rel="canonical" id="canonical-url" href="https://siraj-alathar.com/prayer.html">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="سِراج الأطهار">
+    <meta property="og:url" id="og-url" content="https://siraj-alathar.com/prayer.html">
+    <meta property="og:title" id="og-title" content="قراءة الأدعية والزيارات - سِراج الأطهار">
+    <meta property="og:description" id="og-description" content="مكتبة شاملة لقراءة الأدعية والمناجاة والزيارات بالتشكيل الكامل وخط عربي واضح عبر سِراج الأطهار.">
+    <meta property="og:image" content="https://siraj-alathar.com/images/logo.png">
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twitter-title" content="قراءة الأدعية والزيارات - سِراج الأطهار">
+    <meta name="twitter:description" id="twitter-description" content="مكتبة شاملة لقراءة الأدعية والمناجاة والزيارات بالتشكيل الكامل وخط عربي واضح عبر سِراج الأطهار.">
+    <meta name="twitter:image" content="https://siraj-alathar.com/images/logo.png">
+
+    <!-- Schema.org JSON-LD Structured Data for Google -->
+    <script type="application/ld+json" id="prayer-schema-ld">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "مكتبة الأدعية والزيارات",
+      "headline": "قراءة الأدعية والزيارات المباركة - سِراج الأطهار",
+      "inLanguage": "ar",
+      "publisher": {
+        "@type": "Organization",
+        "name": "سِراج الأطهار",
+        "url": "https://siraj-alathar.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://siraj-alathar.com/images/logo.png"
+        }
+      }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css?v=2.7">
+</head>
+<body class="prayer-page-body">
+    <div class="prayer-page-wrapper">
+
+        <!-- Top Navigation -->
+        <header class="prayer-navbar">
+            <div class="container prayer-navbar-content">
+                <a href="index.html" class="prayer-nav-brand" aria-label="سِراج الأطهار - الصفحة الرئيسية">
+                    <img src="images/logo.png" alt="شعار سِراج الأطهار" class="brand-logo-img">
+                    <span class="brand-title-text">سِراج الأطهار</span>
+                </a>
+
+                <div class="prayer-nav-actions">
+                    <a href="index.html#duas" class="prayer-back-btn" id="btn-back-library">
+                        <span class="material-symbols-rounded">arrow_forward</span>
+                        <span>مكتبة الأدعية</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="prayer-main-container">
+
+            <!-- Breadcrumbs -->
+            <nav class="prayer-breadcrumbs" aria-label="مسار التنقل">
+                <a href="index.html">الرئيسية</a>
+                <span class="bread-sep">/</span>
+                <a href="index.html#duas">مكتبة الأدعية</a>
+                <span class="bread-sep">/</span>
+                <span class="bread-cat" id="bread-category">الفئة</span>
+                <span class="bread-sep">/</span>
+                <span class="current" id="bread-title">عنوان الدعاء</span>
+            </nav>
+
+            <!-- Loading indicator -->
+            <div id="prayer-loading-state" class="duas-loading" style="padding: 80px 0;">
+                <span class="material-symbols-rounded duas-spinner">autorenew</span>
+                <p>جاري تحميل الدعاء المبارك...</p>
+            </div>
+
+            <!-- Error state -->
+            <div id="prayer-error-state" class="duas-no-results" style="display: none; padding: 60px 0;">
+                <span class="material-symbols-rounded">error_outline</span>
+                <h3>لم يتم العثور على الدعاء المطلوب</h3>
+                <p style="margin: 12px 0 24px;">قد يكون الرابط غير صحيح أو تم نقل الدعاء.</p>
+                <a href="index.html#duas" class="prayer-back-btn" style="background: var(--primary); color: white; border-color: var(--primary);">
+                    <span class="material-symbols-rounded">arrow_forward</span>
+                    <span>العودة إلى مكتبة الأدعية</span>
+                </a>
+            </div>
+
+            <!-- Prayer Content (revealed once loaded) -->
+            <div id="prayer-content-box" style="display: none;">
+
+                <!-- Hero Header Card -->
+                <article class="prayer-hero-card">
+                    <div id="prayer-category-pill" class="prayer-cat-pill">
+                        <span class="material-symbols-rounded" id="prayer-cat-icon">auto_stories</span>
+                        <span id="prayer-cat-name">فئة الدعاء</span>
+                    </div>
+
+                    <h1 id="prayer-heading" class="prayer-heading">عنوان الدعاء</h1>
+
+                    <div class="prayer-ornament-separator">✦ ✧ ✦</div>
+
+                    <!-- Virtue / Source Callout -->
+                    <aside id="prayer-virtue-callout" class="prayer-virtue-callout" aria-label="فضل الدعاء أو مصدره">
+                        <span class="material-symbols-rounded prayer-virtue-icon">format_quote</span>
+                        <div id="prayer-virtue-text"></div>
+                    </aside>
+                </article>
+
+                <!-- Interactive Toolbar -->
+                <div class="prayer-toolbar" role="toolbar" aria-label="أدوات قراءة الدعاء">
+                    <!-- Font size adjuster -->
+                    <div class="prayer-toolbar-group">
+                        <span class="toolbar-label">حجم الخط:</span>
+                        <button type="button" class="font-size-btn" id="btn-font-dec" aria-label="تصغير حجم الخط">A-</button>
+                        <span class="font-size-indicator" id="font-size-label">24px</span>
+                        <button type="button" class="font-size-btn" id="btn-font-inc" aria-label="تكبير حجم الخط">A+</button>
+                    </div>
+
+                    <!-- Tasbeeh / Reading Counter -->
+                    <div class="prayer-toolbar-group">
+                        <div class="tasbeeh-pill">
+                            <span class="tasbeeh-title">عداد القراءة:</span>
+                            <span class="tasbeeh-count" id="tasbeeh-counter">0</span>
+                            <button type="button" class="tasbeeh-inc-btn" id="btn-tasbeeh-inc" aria-label="زيادة عداد القراءة" title="اضغط عند كل قراءة">
+                                <span class="material-symbols-rounded" style="font-size: 18px;">add</span>
+                            </button>
+                            <button type="button" class="tasbeeh-reset-btn" id="btn-tasbeeh-reset" aria-label="تصفير عداد القراءة" title="تصفير العداد">
+                                <span class="material-symbols-rounded" style="font-size: 16px;">restart_alt</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Action buttons -->
+                    <div class="prayer-toolbar-group">
+                        <button type="button" class="toolbar-action-btn" id="btn-copy-prayer" title="نسخ نص الدعاء">
+                            <span class="material-symbols-rounded">content_copy</span>
+                            <span>نسخ</span>
+                        </button>
+                        <button type="button" class="toolbar-action-btn" id="btn-share-prayer" title="مشاركة رابط الدعاء">
+                            <span class="material-symbols-rounded">share</span>
+                            <span>مشاركة</span>
+                        </button>
+                        <button type="button" class="toolbar-action-btn" id="btn-print-prayer" title="طباعة الدعاء">
+                            <span class="material-symbols-rounded">print</span>
+                            <span>طباعة</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Prayer Reader Card -->
+                <section class="prayer-reader-card" aria-label="نص الدعاء">
+                    <div id="prayer-full-text" class="prayer-full-text"></div>
+                </section>
+
+                <!-- Navigation between previous and next prayer in this category -->
+                <nav class="prayer-nav-grid" aria-label="التنقل بين الأدعية">
+                    <a href="#" id="prayer-prev-link" class="prayer-nav-card" aria-label="الدعاء السابق">
+                        <div class="prayer-nav-icon">
+                            <span class="material-symbols-rounded">arrow_forward</span>
+                        </div>
+                        <div class="prayer-nav-meta">
+                            <span class="prayer-nav-label">الدعاء السابق</span>
+                            <p class="prayer-nav-title" id="prayer-prev-title">---</p>
+                        </div>
+                    </a>
+
+                    <a href="#" id="prayer-next-link" class="prayer-nav-card" aria-label="الدعاء التالي">
+                        <div class="prayer-nav-meta" style="text-align: left;">
+                            <span class="prayer-nav-label">الدعاء التالي</span>
+                            <p class="prayer-nav-title" id="prayer-next-title">---</p>
+                        </div>
+                        <div class="prayer-nav-icon">
+                            <span class="material-symbols-rounded">arrow_back</span>
+                        </div>
+                    </a>
+                </nav>
+
+                <!-- Related Prayers in Same Category -->
+                <section class="prayer-related-wrapper" id="prayer-related-section">
+                    <h2 class="prayer-related-title">
+                        <span class="material-symbols-rounded">auto_stories</span>
+                        <span id="related-heading-text">أدعية أخرى من نفس الفئة</span>
+                    </h2>
+                    <div class="prayer-related-grid" id="prayer-related-grid"></div>
+                </section>
+
+                <!-- Mobile App CTA Card -->
+                <section class="download-card" style="margin-top: 40px; margin-bottom: 20px;">
+                    <div class="download-glow"></div>
+                    <div class="download-content" style="grid-template-columns: 1fr; text-align: center;">
+                        <div class="download-text" style="max-width: 600px; margin: 0 auto;">
+                            <span class="download-eyebrow">سِراج الأطهار في هاتفك</span>
+                            <h3 class="download-title" style="font-size: 1.8rem;">تصفح جميع الأدعية والأذكار دون إنترنت</h3>
+                            <p class="download-description">
+                                حمّل التطبيق مجاناً وتمتع بمكتبة كاملة تشمل الأدعية والزيارات ومواقيت الصلاة الدقيقة.
+                            </p>
+                            <div class="download-buttons" style="justify-content: center;">
+                                <a href="https://appgallery.cloud.huawei.com/ag/n/app/C118903691?locale=en_US&source=appshare&subsource=C118903691&shareTo=com.android.bluetooth&shareFrom=appmarket&shareIds=d4e7c5cf29264f958eab0f45f4e7d8fb_com.android.bluetooth&callType=SHARE" target="_blank" rel="noopener noreferrer" class="download-btn app-gallery" aria-label="تحميل عبر AppGallery">
+                                    <div class="download-btn-icon">
+                                        <svg viewBox="0 0 36 36" width="32" height="32" aria-hidden="true">
+                                            <defs>
+                                                <linearGradient id="agGradP" x1="18" y1="0" x2="18" y2="36" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FB6361" offset="0%"/>
+                                                    <stop stop-color="#ED3E45" offset="100%"/>
+                                                </linearGradient>
+                                            </defs>
+                                            <rect width="36" height="36" rx="8" fill="url(#agGradP)"/>
+                                            <path d="M 18,12 C 14.691,12 12,9.308 12,6 h 0.848 c 0,2.841 2.312,5.152 5.152,5.152 2.841,0 5.152,-2.311 5.152,-5.152 H 24 c 0,3.308 -2.692,6 -6,6" fill="#ffffff"/>
+                                            <path d="m 15.703,20.879 h 1.445 l -0.725,-1.686 z m -0.356,0.85 -0.429,0.981 h -0.976 l 2.076,-4.71 h 0.844 l 2.068,4.71 H 17.927 l -0.423,-0.981 z m 15.709,0.978 H 32 V 18 h -0.944 z m -3.755,-2.022 h 1.739 v -0.858 h -1.739 v -0.965 h 2.525 v -0.858 h -3.468 v 4.706 h 3.559 v -0.858 H 27.301 Z M 23.552,21.241 22.482 18 h -0.781 l -1.07,3.241 -1.041,-3.238 h -1.018 l 1.643,4.71 h 0.791 l 1.071,-3.094 1.071,3.094 h 0.798 l 1.639,-4.71 H 24.595 Z M 12.502,20.698 c 0,0.766 -0.38,1.176 -1.071,1.176 -0.695,0 -1.077,-0.421 -1.077,-1.208 V 18.003 H 9.397 v 2.695 c 0,1.325 0.737,2.085 2.02,2.085 1.297,0 2.04,-0.775 2.04,-2.125 v -2.658 h -0.955 z M 7.115,18 h 0.956 v 4.713 H 7.115 V 20.799 H 4.956 v 1.914 H 4 v -4.713 h 0.956 v 1.901 h 2.159 z" fill="#ffffff"/>
+                                        </svg>
+                                    </div>
+                                    <div class="download-btn-text">
+                                        <span class="download-btn-label">متوفر على</span>
+                                        <span class="download-btn-store">AppGallery</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Toast feedback popup -->
+        <div id="prayer-toast" class="prayer-toast" role="status" aria-live="polite">
+            <span class="material-symbols-rounded">check_circle</span>
+            <span id="prayer-toast-msg">تم نسخ الدعاء بنجاح</span>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="images/logo.png" alt="سِراج الأطهار" class="logo-image">
+                            <span class="footer-brand-name">سِراج الأطهار</span>
+                        </div>
+                        <p class="footer-tagline">نور الهداية في راحة يدك</p>
+                        <div class="footer-social">
+                            <a href="https://www.instagram.com/siraj.al_athar?igsi=MWN5dm80dmV1Nng0eA==" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://www.facebook.com/share/1EHNBiAnQV/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                                <span>Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <a href="index.html#home">الرئيسية</a>
+                        <a href="quran.html">القرآن الكريم</a>
+                        <a href="index.html#features">المميزات</a>
+                        <a href="index.html#screenshots">لقطات الشاشة</a>
+                        <a href="index.html#duas">مكتبة الأدعية</a>
+                        <a href="index.html#download">التحميل</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2026 سِراج الأطهار - جميع الحقوق محفوظة</p>
+                    <p class="footer-quote">﴿اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ﴾</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="accessibility.js?v=2.1"></script>
+    <script src="prayers_data.js"></script>
+    <script src="prayer.js?v=1.1"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <style>
+      .tile-stroke { fill: none; stroke-width: 0.8; }
+      .star-outer  { stroke: rgba(255,255,255,0.08); }
+      .star-gold   { stroke: rgba(212,175,55,0.13); }
+      .star-faint  { stroke: rgba(255,255,255,0.04); stroke-width: 0.5; }
+    </style>
+  </defs>
+
+  <!-- Square rotated 45° (outer diamond) -->
+  <rect class="tile-stroke star-outer"
+        x="27" y="27" width="66" height="66"
+        transform="rotate(45 60 60)" rx="1.5"/>
+
+  <!-- Axis-aligned inner square -->
+  <rect class="tile-stroke star-outer"
+        x="36" y="36" width="48" height="48" rx="1.5"/>
+
+  <!-- 8-pointed star (octagram) -->
+  <polygon class="tile-stroke star-gold"
+    points="
+      60,20   67,38   84,28   76,46   98,48
+      80,60   94,76   72,72   68,96   58,76
+      40,88   46,68   22,62   42,54   30,36   52,44
+    "/>
+
+  <!-- Inner octagram (smaller) -->
+  <polygon class="tile-stroke star-gold"
+    points="
+      60,34   64,44   74,38   70,48   82,50
+      74,58   80,68   68,66   66,78   60,70
+      54,78   52,66   40,68   46,58   38,50
+      50,48   46,38   56,44
+    "
+    opacity="0.7"/>
+
+  <!-- Connecting lines: corner to center -->
+  <line class="tile-stroke star-faint" x1="36" y1="36" x2="84" y2="84"/>
+  <line class="tile-stroke star-faint" x1="84" y1="36" x2="36" y2="84"/>
+  <line class="tile-stroke star-faint" x1="60" y1="24" x2="60" y2="96"/>
+  <line class="tile-stroke star-faint" x1="24" y1="60" x2="96" y2="60"/>
+
+  <!-- Center dot -->
+  <circle class="tile-stroke star-gold" cx="60" cy="60" r="5" opacity="0.6"/>
+  <circle cx="60" cy="60" r="2" fill="rgba(212,175,55,0.15)"/>
+</svg>

@@ -1,0 +1,1336 @@
+{
+  "total_pages": 604,
+  "total_chapters": 114,
+  "total_juzs": 30,
+  "reciters": [
+    {
+      "id": 7,
+      "name": "مشاري راشد العفاسي",
+      "sub": "حفص عن عاصم"
+    },
+    {
+      "id": 2,
+      "name": "عبد الباسط عبد الصمد",
+      "sub": "مرتل"
+    },
+    {
+      "id": 1,
+      "name": "عبد الباسط عبد الصمد",
+      "sub": "مجود"
+    },
+    {
+      "id": 8,
+      "name": "محمد صديق المنشاوي",
+      "sub": "مجود"
+    },
+    {
+      "id": 6,
+      "name": "محمود خليل الحصري",
+      "sub": "مرتل"
+    },
+    {
+      "id": 4,
+      "name": "أبو بكر الشاطري",
+      "sub": "حفص عن عاصم"
+    },
+    {
+      "id": 5,
+      "name": "هاني الرفاعي",
+      "sub": "حفص عن عاصم"
+    }
+  ],
+  "chapters": [
+    {
+      "id": 1,
+      "name": "الفاتحة",
+      "name_simple": "Al-Fatihah",
+      "revelation_place": "مكية",
+      "verses_count": 7,
+      "start_page": 1,
+      "end_page": 1,
+      "bismillah_pre": false
+    },
+    {
+      "id": 2,
+      "name": "البقرة",
+      "name_simple": "Al-Baqarah",
+      "revelation_place": "مدنية",
+      "verses_count": 286,
+      "start_page": 2,
+      "end_page": 49,
+      "bismillah_pre": true
+    },
+    {
+      "id": 3,
+      "name": "آل عمران",
+      "name_simple": "Ali 'Imran",
+      "revelation_place": "مدنية",
+      "verses_count": 200,
+      "start_page": 50,
+      "end_page": 76,
+      "bismillah_pre": true
+    },
+    {
+      "id": 4,
+      "name": "النساء",
+      "name_simple": "An-Nisa",
+      "revelation_place": "مدنية",
+      "verses_count": 176,
+      "start_page": 77,
+      "end_page": 106,
+      "bismillah_pre": true
+    },
+    {
+      "id": 5,
+      "name": "المائدة",
+      "name_simple": "Al-Ma'idah",
+      "revelation_place": "مدنية",
+      "verses_count": 120,
+      "start_page": 106,
+      "end_page": 127,
+      "bismillah_pre": true
+    },
+    {
+      "id": 6,
+      "name": "الأنعام",
+      "name_simple": "Al-An'am",
+      "revelation_place": "مكية",
+      "verses_count": 165,
+      "start_page": 128,
+      "end_page": 150,
+      "bismillah_pre": true
+    },
+    {
+      "id": 7,
+      "name": "الأعراف",
+      "name_simple": "Al-A'raf",
+      "revelation_place": "مكية",
+      "verses_count": 206,
+      "start_page": 151,
+      "end_page": 176,
+      "bismillah_pre": true
+    },
+    {
+      "id": 8,
+      "name": "الأنفال",
+      "name_simple": "Al-Anfal",
+      "revelation_place": "مدنية",
+      "verses_count": 75,
+      "start_page": 177,
+      "end_page": 186,
+      "bismillah_pre": true
+    },
+    {
+      "id": 9,
+      "name": "التوبة",
+      "name_simple": "At-Tawbah",
+      "revelation_place": "مدنية",
+      "verses_count": 129,
+      "start_page": 187,
+      "end_page": 207,
+      "bismillah_pre": false
+    },
+    {
+      "id": 10,
+      "name": "يونس",
+      "name_simple": "Yunus",
+      "revelation_place": "مكية",
+      "verses_count": 109,
+      "start_page": 208,
+      "end_page": 221,
+      "bismillah_pre": true
+    },
+    {
+      "id": 11,
+      "name": "هود",
+      "name_simple": "Hud",
+      "revelation_place": "مكية",
+      "verses_count": 123,
+      "start_page": 221,
+      "end_page": 235,
+      "bismillah_pre": true
+    },
+    {
+      "id": 12,
+      "name": "يوسف",
+      "name_simple": "Yusuf",
+      "revelation_place": "مكية",
+      "verses_count": 111,
+      "start_page": 235,
+      "end_page": 248,
+      "bismillah_pre": true
+    },
+    {
+      "id": 13,
+      "name": "الرعد",
+      "name_simple": "Ar-Ra'd",
+      "revelation_place": "مدنية",
+      "verses_count": 43,
+      "start_page": 249,
+      "end_page": 255,
+      "bismillah_pre": true
+    },
+    {
+      "id": 14,
+      "name": "ابراهيم",
+      "name_simple": "Ibrahim",
+      "revelation_place": "مكية",
+      "verses_count": 52,
+      "start_page": 255,
+      "end_page": 261,
+      "bismillah_pre": true
+    },
+    {
+      "id": 15,
+      "name": "الحجر",
+      "name_simple": "Al-Hijr",
+      "revelation_place": "مكية",
+      "verses_count": 99,
+      "start_page": 262,
+      "end_page": 267,
+      "bismillah_pre": true
+    },
+    {
+      "id": 16,
+      "name": "النحل",
+      "name_simple": "An-Nahl",
+      "revelation_place": "مكية",
+      "verses_count": 128,
+      "start_page": 267,
+      "end_page": 281,
+      "bismillah_pre": true
+    },
+    {
+      "id": 17,
+      "name": "الإسراء",
+      "name_simple": "Al-Isra",
+      "revelation_place": "مكية",
+      "verses_count": 111,
+      "start_page": 282,
+      "end_page": 293,
+      "bismillah_pre": true
+    },
+    {
+      "id": 18,
+      "name": "الكهف",
+      "name_simple": "Al-Kahf",
+      "revelation_place": "مكية",
+      "verses_count": 110,
+      "start_page": 293,
+      "end_page": 304,
+      "bismillah_pre": true
+    },
+    {
+      "id": 19,
+      "name": "مريم",
+      "name_simple": "Maryam",
+      "revelation_place": "مكية",
+      "verses_count": 98,
+      "start_page": 305,
+      "end_page": 312,
+      "bismillah_pre": true
+    },
+    {
+      "id": 20,
+      "name": "طه",
+      "name_simple": "Taha",
+      "revelation_place": "مكية",
+      "verses_count": 135,
+      "start_page": 312,
+      "end_page": 321,
+      "bismillah_pre": true
+    },
+    {
+      "id": 21,
+      "name": "الأنبياء",
+      "name_simple": "Al-Anbya",
+      "revelation_place": "مكية",
+      "verses_count": 112,
+      "start_page": 322,
+      "end_page": 331,
+      "bismillah_pre": true
+    },
+    {
+      "id": 22,
+      "name": "الحج",
+      "name_simple": "Al-Hajj",
+      "revelation_place": "مدنية",
+      "verses_count": 78,
+      "start_page": 332,
+      "end_page": 341,
+      "bismillah_pre": true
+    },
+    {
+      "id": 23,
+      "name": "المؤمنون",
+      "name_simple": "Al-Mu'minun",
+      "revelation_place": "مكية",
+      "verses_count": 118,
+      "start_page": 342,
+      "end_page": 349,
+      "bismillah_pre": true
+    },
+    {
+      "id": 24,
+      "name": "النور",
+      "name_simple": "An-Nur",
+      "revelation_place": "مدنية",
+      "verses_count": 64,
+      "start_page": 350,
+      "end_page": 359,
+      "bismillah_pre": true
+    },
+    {
+      "id": 25,
+      "name": "الفرقان",
+      "name_simple": "Al-Furqan",
+      "revelation_place": "مكية",
+      "verses_count": 77,
+      "start_page": 359,
+      "end_page": 366,
+      "bismillah_pre": true
+    },
+    {
+      "id": 26,
+      "name": "الشعراء",
+      "name_simple": "Ash-Shu'ara",
+      "revelation_place": "مكية",
+      "verses_count": 227,
+      "start_page": 367,
+      "end_page": 376,
+      "bismillah_pre": true
+    },
+    {
+      "id": 27,
+      "name": "النمل",
+      "name_simple": "An-Naml",
+      "revelation_place": "مكية",
+      "verses_count": 93,
+      "start_page": 377,
+      "end_page": 385,
+      "bismillah_pre": true
+    },
+    {
+      "id": 28,
+      "name": "القصص",
+      "name_simple": "Al-Qasas",
+      "revelation_place": "مكية",
+      "verses_count": 88,
+      "start_page": 385,
+      "end_page": 396,
+      "bismillah_pre": true
+    },
+    {
+      "id": 29,
+      "name": "العنكبوت",
+      "name_simple": "Al-'Ankabut",
+      "revelation_place": "مكية",
+      "verses_count": 69,
+      "start_page": 396,
+      "end_page": 404,
+      "bismillah_pre": true
+    },
+    {
+      "id": 30,
+      "name": "الروم",
+      "name_simple": "Ar-Rum",
+      "revelation_place": "مكية",
+      "verses_count": 60,
+      "start_page": 404,
+      "end_page": 410,
+      "bismillah_pre": true
+    },
+    {
+      "id": 31,
+      "name": "لقمان",
+      "name_simple": "Luqman",
+      "revelation_place": "مكية",
+      "verses_count": 34,
+      "start_page": 411,
+      "end_page": 414,
+      "bismillah_pre": true
+    },
+    {
+      "id": 32,
+      "name": "السجدة",
+      "name_simple": "As-Sajdah",
+      "revelation_place": "مكية",
+      "verses_count": 30,
+      "start_page": 415,
+      "end_page": 417,
+      "bismillah_pre": true
+    },
+    {
+      "id": 33,
+      "name": "الأحزاب",
+      "name_simple": "Al-Ahzab",
+      "revelation_place": "مدنية",
+      "verses_count": 73,
+      "start_page": 418,
+      "end_page": 427,
+      "bismillah_pre": true
+    },
+    {
+      "id": 34,
+      "name": "سبإ",
+      "name_simple": "Saba",
+      "revelation_place": "مكية",
+      "verses_count": 54,
+      "start_page": 428,
+      "end_page": 434,
+      "bismillah_pre": true
+    },
+    {
+      "id": 35,
+      "name": "فاطر",
+      "name_simple": "Fatir",
+      "revelation_place": "مكية",
+      "verses_count": 45,
+      "start_page": 434,
+      "end_page": 440,
+      "bismillah_pre": true
+    },
+    {
+      "id": 36,
+      "name": "يس",
+      "name_simple": "Ya-Sin",
+      "revelation_place": "مكية",
+      "verses_count": 83,
+      "start_page": 440,
+      "end_page": 445,
+      "bismillah_pre": true
+    },
+    {
+      "id": 37,
+      "name": "الصافات",
+      "name_simple": "As-Saffat",
+      "revelation_place": "مكية",
+      "verses_count": 182,
+      "start_page": 446,
+      "end_page": 452,
+      "bismillah_pre": true
+    },
+    {
+      "id": 38,
+      "name": "ص",
+      "name_simple": "Sad",
+      "revelation_place": "مكية",
+      "verses_count": 88,
+      "start_page": 453,
+      "end_page": 458,
+      "bismillah_pre": true
+    },
+    {
+      "id": 39,
+      "name": "الزمر",
+      "name_simple": "Az-Zumar",
+      "revelation_place": "مكية",
+      "verses_count": 75,
+      "start_page": 458,
+      "end_page": 467,
+      "bismillah_pre": true
+    },
+    {
+      "id": 40,
+      "name": "غافر",
+      "name_simple": "Ghafir",
+      "revelation_place": "مكية",
+      "verses_count": 85,
+      "start_page": 467,
+      "end_page": 476,
+      "bismillah_pre": true
+    },
+    {
+      "id": 41,
+      "name": "فصلت",
+      "name_simple": "Fussilat",
+      "revelation_place": "مكية",
+      "verses_count": 54,
+      "start_page": 477,
+      "end_page": 482,
+      "bismillah_pre": true
+    },
+    {
+      "id": 42,
+      "name": "الشورى",
+      "name_simple": "Ash-Shuraa",
+      "revelation_place": "مكية",
+      "verses_count": 53,
+      "start_page": 483,
+      "end_page": 489,
+      "bismillah_pre": true
+    },
+    {
+      "id": 43,
+      "name": "الزخرف",
+      "name_simple": "Az-Zukhruf",
+      "revelation_place": "مكية",
+      "verses_count": 89,
+      "start_page": 489,
+      "end_page": 495,
+      "bismillah_pre": true
+    },
+    {
+      "id": 44,
+      "name": "الدخان",
+      "name_simple": "Ad-Dukhan",
+      "revelation_place": "مكية",
+      "verses_count": 59,
+      "start_page": 496,
+      "end_page": 498,
+      "bismillah_pre": true
+    },
+    {
+      "id": 45,
+      "name": "الجاثية",
+      "name_simple": "Al-Jathiyah",
+      "revelation_place": "مكية",
+      "verses_count": 37,
+      "start_page": 499,
+      "end_page": 502,
+      "bismillah_pre": true
+    },
+    {
+      "id": 46,
+      "name": "الأحقاف",
+      "name_simple": "Al-Ahqaf",
+      "revelation_place": "مكية",
+      "verses_count": 35,
+      "start_page": 502,
+      "end_page": 506,
+      "bismillah_pre": true
+    },
+    {
+      "id": 47,
+      "name": "محمد",
+      "name_simple": "Muhammad",
+      "revelation_place": "مدنية",
+      "verses_count": 38,
+      "start_page": 507,
+      "end_page": 510,
+      "bismillah_pre": true
+    },
+    {
+      "id": 48,
+      "name": "الفتح",
+      "name_simple": "Al-Fath",
+      "revelation_place": "مدنية",
+      "verses_count": 29,
+      "start_page": 511,
+      "end_page": 515,
+      "bismillah_pre": true
+    },
+    {
+      "id": 49,
+      "name": "الحجرات",
+      "name_simple": "Al-Hujurat",
+      "revelation_place": "مدنية",
+      "verses_count": 18,
+      "start_page": 515,
+      "end_page": 517,
+      "bismillah_pre": true
+    },
+    {
+      "id": 50,
+      "name": "ق",
+      "name_simple": "Qaf",
+      "revelation_place": "مكية",
+      "verses_count": 45,
+      "start_page": 518,
+      "end_page": 520,
+      "bismillah_pre": true
+    },
+    {
+      "id": 51,
+      "name": "الذاريات",
+      "name_simple": "Adh-Dhariyat",
+      "revelation_place": "مكية",
+      "verses_count": 60,
+      "start_page": 520,
+      "end_page": 523,
+      "bismillah_pre": true
+    },
+    {
+      "id": 52,
+      "name": "الطور",
+      "name_simple": "At-Tur",
+      "revelation_place": "مكية",
+      "verses_count": 49,
+      "start_page": 523,
+      "end_page": 525,
+      "bismillah_pre": true
+    },
+    {
+      "id": 53,
+      "name": "النجم",
+      "name_simple": "An-Najm",
+      "revelation_place": "مكية",
+      "verses_count": 62,
+      "start_page": 526,
+      "end_page": 528,
+      "bismillah_pre": true
+    },
+    {
+      "id": 54,
+      "name": "القمر",
+      "name_simple": "Al-Qamar",
+      "revelation_place": "مكية",
+      "verses_count": 55,
+      "start_page": 528,
+      "end_page": 531,
+      "bismillah_pre": true
+    },
+    {
+      "id": 55,
+      "name": "الرحمن",
+      "name_simple": "Ar-Rahman",
+      "revelation_place": "مدنية",
+      "verses_count": 78,
+      "start_page": 531,
+      "end_page": 534,
+      "bismillah_pre": true
+    },
+    {
+      "id": 56,
+      "name": "الواقعة",
+      "name_simple": "Al-Waqi'ah",
+      "revelation_place": "مكية",
+      "verses_count": 96,
+      "start_page": 534,
+      "end_page": 537,
+      "bismillah_pre": true
+    },
+    {
+      "id": 57,
+      "name": "الحديد",
+      "name_simple": "Al-Hadid",
+      "revelation_place": "مدنية",
+      "verses_count": 29,
+      "start_page": 537,
+      "end_page": 541,
+      "bismillah_pre": true
+    },
+    {
+      "id": 58,
+      "name": "المجادلة",
+      "name_simple": "Al-Mujadila",
+      "revelation_place": "مدنية",
+      "verses_count": 22,
+      "start_page": 542,
+      "end_page": 545,
+      "bismillah_pre": true
+    },
+    {
+      "id": 59,
+      "name": "الحشر",
+      "name_simple": "Al-Hashr",
+      "revelation_place": "مدنية",
+      "verses_count": 24,
+      "start_page": 545,
+      "end_page": 548,
+      "bismillah_pre": true
+    },
+    {
+      "id": 60,
+      "name": "الممتحنة",
+      "name_simple": "Al-Mumtahanah",
+      "revelation_place": "مدنية",
+      "verses_count": 13,
+      "start_page": 549,
+      "end_page": 551,
+      "bismillah_pre": true
+    },
+    {
+      "id": 61,
+      "name": "الصف",
+      "name_simple": "As-Saf",
+      "revelation_place": "مدنية",
+      "verses_count": 14,
+      "start_page": 551,
+      "end_page": 552,
+      "bismillah_pre": true
+    },
+    {
+      "id": 62,
+      "name": "الجمعة",
+      "name_simple": "Al-Jumu'ah",
+      "revelation_place": "مدنية",
+      "verses_count": 11,
+      "start_page": 553,
+      "end_page": 554,
+      "bismillah_pre": true
+    },
+    {
+      "id": 63,
+      "name": "المنافقون",
+      "name_simple": "Al-Munafiqun",
+      "revelation_place": "مدنية",
+      "verses_count": 11,
+      "start_page": 554,
+      "end_page": 555,
+      "bismillah_pre": true
+    },
+    {
+      "id": 64,
+      "name": "التغابن",
+      "name_simple": "At-Taghabun",
+      "revelation_place": "مدنية",
+      "verses_count": 18,
+      "start_page": 556,
+      "end_page": 557,
+      "bismillah_pre": true
+    },
+    {
+      "id": 65,
+      "name": "الطلاق",
+      "name_simple": "At-Talaq",
+      "revelation_place": "مدنية",
+      "verses_count": 12,
+      "start_page": 558,
+      "end_page": 559,
+      "bismillah_pre": true
+    },
+    {
+      "id": 66,
+      "name": "التحريم",
+      "name_simple": "At-Tahrim",
+      "revelation_place": "مدنية",
+      "verses_count": 12,
+      "start_page": 560,
+      "end_page": 561,
+      "bismillah_pre": true
+    },
+    {
+      "id": 67,
+      "name": "الملك",
+      "name_simple": "Al-Mulk",
+      "revelation_place": "مكية",
+      "verses_count": 30,
+      "start_page": 562,
+      "end_page": 564,
+      "bismillah_pre": true
+    },
+    {
+      "id": 68,
+      "name": "القلم",
+      "name_simple": "Al-Qalam",
+      "revelation_place": "مكية",
+      "verses_count": 52,
+      "start_page": 564,
+      "end_page": 566,
+      "bismillah_pre": true
+    },
+    {
+      "id": 69,
+      "name": "الحاقة",
+      "name_simple": "Al-Haqqah",
+      "revelation_place": "مكية",
+      "verses_count": 52,
+      "start_page": 566,
+      "end_page": 568,
+      "bismillah_pre": true
+    },
+    {
+      "id": 70,
+      "name": "المعارج",
+      "name_simple": "Al-Ma'arij",
+      "revelation_place": "مكية",
+      "verses_count": 44,
+      "start_page": 568,
+      "end_page": 570,
+      "bismillah_pre": true
+    },
+    {
+      "id": 71,
+      "name": "نوح",
+      "name_simple": "Nuh",
+      "revelation_place": "مكية",
+      "verses_count": 28,
+      "start_page": 570,
+      "end_page": 571,
+      "bismillah_pre": true
+    },
+    {
+      "id": 72,
+      "name": "الجن",
+      "name_simple": "Al-Jinn",
+      "revelation_place": "مكية",
+      "verses_count": 28,
+      "start_page": 572,
+      "end_page": 573,
+      "bismillah_pre": true
+    },
+    {
+      "id": 73,
+      "name": "المزمل",
+      "name_simple": "Al-Muzzammil",
+      "revelation_place": "مكية",
+      "verses_count": 20,
+      "start_page": 574,
+      "end_page": 575,
+      "bismillah_pre": true
+    },
+    {
+      "id": 74,
+      "name": "المدثر",
+      "name_simple": "Al-Muddaththir",
+      "revelation_place": "مكية",
+      "verses_count": 56,
+      "start_page": 575,
+      "end_page": 577,
+      "bismillah_pre": true
+    },
+    {
+      "id": 75,
+      "name": "القيامة",
+      "name_simple": "Al-Qiyamah",
+      "revelation_place": "مكية",
+      "verses_count": 40,
+      "start_page": 577,
+      "end_page": 578,
+      "bismillah_pre": true
+    },
+    {
+      "id": 76,
+      "name": "الانسان",
+      "name_simple": "Al-Insan",
+      "revelation_place": "مدنية",
+      "verses_count": 31,
+      "start_page": 578,
+      "end_page": 580,
+      "bismillah_pre": true
+    },
+    {
+      "id": 77,
+      "name": "المرسلات",
+      "name_simple": "Al-Mursalat",
+      "revelation_place": "مكية",
+      "verses_count": 50,
+      "start_page": 580,
+      "end_page": 581,
+      "bismillah_pre": true
+    },
+    {
+      "id": 78,
+      "name": "النبإ",
+      "name_simple": "An-Naba",
+      "revelation_place": "مكية",
+      "verses_count": 40,
+      "start_page": 582,
+      "end_page": 583,
+      "bismillah_pre": true
+    },
+    {
+      "id": 79,
+      "name": "النازعات",
+      "name_simple": "An-Nazi'at",
+      "revelation_place": "مكية",
+      "verses_count": 46,
+      "start_page": 583,
+      "end_page": 584,
+      "bismillah_pre": true
+    },
+    {
+      "id": 80,
+      "name": "عبس",
+      "name_simple": "'Abasa",
+      "revelation_place": "مكية",
+      "verses_count": 42,
+      "start_page": 585,
+      "end_page": 585,
+      "bismillah_pre": true
+    },
+    {
+      "id": 81,
+      "name": "التكوير",
+      "name_simple": "At-Takwir",
+      "revelation_place": "مكية",
+      "verses_count": 29,
+      "start_page": 586,
+      "end_page": 586,
+      "bismillah_pre": true
+    },
+    {
+      "id": 82,
+      "name": "الإنفطار",
+      "name_simple": "Al-Infitar",
+      "revelation_place": "مكية",
+      "verses_count": 19,
+      "start_page": 587,
+      "end_page": 587,
+      "bismillah_pre": true
+    },
+    {
+      "id": 83,
+      "name": "المطففين",
+      "name_simple": "Al-Mutaffifin",
+      "revelation_place": "مكية",
+      "verses_count": 36,
+      "start_page": 587,
+      "end_page": 589,
+      "bismillah_pre": true
+    },
+    {
+      "id": 84,
+      "name": "الإنشقاق",
+      "name_simple": "Al-Inshiqaq",
+      "revelation_place": "مكية",
+      "verses_count": 25,
+      "start_page": 589,
+      "end_page": 589,
+      "bismillah_pre": true
+    },
+    {
+      "id": 85,
+      "name": "البروج",
+      "name_simple": "Al-Buruj",
+      "revelation_place": "مكية",
+      "verses_count": 22,
+      "start_page": 590,
+      "end_page": 590,
+      "bismillah_pre": true
+    },
+    {
+      "id": 86,
+      "name": "الطارق",
+      "name_simple": "At-Tariq",
+      "revelation_place": "مكية",
+      "verses_count": 17,
+      "start_page": 591,
+      "end_page": 591,
+      "bismillah_pre": true
+    },
+    {
+      "id": 87,
+      "name": "الأعلى",
+      "name_simple": "Al-A'la",
+      "revelation_place": "مكية",
+      "verses_count": 19,
+      "start_page": 591,
+      "end_page": 592,
+      "bismillah_pre": true
+    },
+    {
+      "id": 88,
+      "name": "الغاشية",
+      "name_simple": "Al-Ghashiyah",
+      "revelation_place": "مكية",
+      "verses_count": 26,
+      "start_page": 592,
+      "end_page": 592,
+      "bismillah_pre": true
+    },
+    {
+      "id": 89,
+      "name": "الفجر",
+      "name_simple": "Al-Fajr",
+      "revelation_place": "مكية",
+      "verses_count": 30,
+      "start_page": 593,
+      "end_page": 594,
+      "bismillah_pre": true
+    },
+    {
+      "id": 90,
+      "name": "البلد",
+      "name_simple": "Al-Balad",
+      "revelation_place": "مكية",
+      "verses_count": 20,
+      "start_page": 594,
+      "end_page": 594,
+      "bismillah_pre": true
+    },
+    {
+      "id": 91,
+      "name": "الشمس",
+      "name_simple": "Ash-Shams",
+      "revelation_place": "مكية",
+      "verses_count": 15,
+      "start_page": 595,
+      "end_page": 595,
+      "bismillah_pre": true
+    },
+    {
+      "id": 92,
+      "name": "الليل",
+      "name_simple": "Al-Layl",
+      "revelation_place": "مكية",
+      "verses_count": 21,
+      "start_page": 595,
+      "end_page": 596,
+      "bismillah_pre": true
+    },
+    {
+      "id": 93,
+      "name": "الضحى",
+      "name_simple": "Ad-Duhaa",
+      "revelation_place": "مكية",
+      "verses_count": 11,
+      "start_page": 596,
+      "end_page": 596,
+      "bismillah_pre": true
+    },
+    {
+      "id": 94,
+      "name": "الشرح",
+      "name_simple": "Ash-Sharh",
+      "revelation_place": "مكية",
+      "verses_count": 8,
+      "start_page": 596,
+      "end_page": 596,
+      "bismillah_pre": true
+    },
+    {
+      "id": 95,
+      "name": "التين",
+      "name_simple": "At-Tin",
+      "revelation_place": "مكية",
+      "verses_count": 8,
+      "start_page": 597,
+      "end_page": 597,
+      "bismillah_pre": true
+    },
+    {
+      "id": 96,
+      "name": "العلق",
+      "name_simple": "Al-'Alaq",
+      "revelation_place": "مكية",
+      "verses_count": 19,
+      "start_page": 597,
+      "end_page": 597,
+      "bismillah_pre": true
+    },
+    {
+      "id": 97,
+      "name": "القدر",
+      "name_simple": "Al-Qadr",
+      "revelation_place": "مكية",
+      "verses_count": 5,
+      "start_page": 598,
+      "end_page": 598,
+      "bismillah_pre": true
+    },
+    {
+      "id": 98,
+      "name": "البينة",
+      "name_simple": "Al-Bayyinah",
+      "revelation_place": "مدنية",
+      "verses_count": 8,
+      "start_page": 598,
+      "end_page": 599,
+      "bismillah_pre": true
+    },
+    {
+      "id": 99,
+      "name": "الزلزلة",
+      "name_simple": "Az-Zalzalah",
+      "revelation_place": "مدنية",
+      "verses_count": 8,
+      "start_page": 599,
+      "end_page": 599,
+      "bismillah_pre": true
+    },
+    {
+      "id": 100,
+      "name": "العاديات",
+      "name_simple": "Al-'Adiyat",
+      "revelation_place": "مكية",
+      "verses_count": 11,
+      "start_page": 599,
+      "end_page": 600,
+      "bismillah_pre": true
+    },
+    {
+      "id": 101,
+      "name": "القارعة",
+      "name_simple": "Al-Qari'ah",
+      "revelation_place": "مكية",
+      "verses_count": 11,
+      "start_page": 600,
+      "end_page": 600,
+      "bismillah_pre": true
+    },
+    {
+      "id": 102,
+      "name": "التكاثر",
+      "name_simple": "At-Takathur",
+      "revelation_place": "مكية",
+      "verses_count": 8,
+      "start_page": 600,
+      "end_page": 600,
+      "bismillah_pre": true
+    },
+    {
+      "id": 103,
+      "name": "العصر",
+      "name_simple": "Al-'Asr",
+      "revelation_place": "مكية",
+      "verses_count": 3,
+      "start_page": 601,
+      "end_page": 601,
+      "bismillah_pre": true
+    },
+    {
+      "id": 104,
+      "name": "الهمزة",
+      "name_simple": "Al-Humazah",
+      "revelation_place": "مكية",
+      "verses_count": 9,
+      "start_page": 601,
+      "end_page": 601,
+      "bismillah_pre": true
+    },
+    {
+      "id": 105,
+      "name": "الفيل",
+      "name_simple": "Al-Fil",
+      "revelation_place": "مكية",
+      "verses_count": 5,
+      "start_page": 601,
+      "end_page": 601,
+      "bismillah_pre": true
+    },
+    {
+      "id": 106,
+      "name": "قريش",
+      "name_simple": "Quraysh",
+      "revelation_place": "مكية",
+      "verses_count": 4,
+      "start_page": 602,
+      "end_page": 602,
+      "bismillah_pre": true
+    },
+    {
+      "id": 107,
+      "name": "الماعون",
+      "name_simple": "Al-Ma'un",
+      "revelation_place": "مكية",
+      "verses_count": 7,
+      "start_page": 602,
+      "end_page": 602,
+      "bismillah_pre": true
+    },
+    {
+      "id": 108,
+      "name": "الكوثر",
+      "name_simple": "Al-Kawthar",
+      "revelation_place": "مكية",
+      "verses_count": 3,
+      "start_page": 602,
+      "end_page": 602,
+      "bismillah_pre": true
+    },
+    {
+      "id": 109,
+      "name": "الكافرون",
+      "name_simple": "Al-Kafirun",
+      "revelation_place": "مكية",
+      "verses_count": 6,
+      "start_page": 603,
+      "end_page": 603,
+      "bismillah_pre": true
+    },
+    {
+      "id": 110,
+      "name": "النصر",
+      "name_simple": "An-Nasr",
+      "revelation_place": "مدنية",
+      "verses_count": 3,
+      "start_page": 603,
+      "end_page": 603,
+      "bismillah_pre": true
+    },
+    {
+      "id": 111,
+      "name": "المسد",
+      "name_simple": "Al-Masad",
+      "revelation_place": "مكية",
+      "verses_count": 5,
+      "start_page": 603,
+      "end_page": 603,
+      "bismillah_pre": true
+    },
+    {
+      "id": 112,
+      "name": "الإخلاص",
+      "name_simple": "Al-Ikhlas",
+      "revelation_place": "مكية",
+      "verses_count": 4,
+      "start_page": 604,
+      "end_page": 604,
+      "bismillah_pre": true
+    },
+    {
+      "id": 113,
+      "name": "الفلق",
+      "name_simple": "Al-Falaq",
+      "revelation_place": "مكية",
+      "verses_count": 5,
+      "start_page": 604,
+      "end_page": 604,
+      "bismillah_pre": true
+    },
+    {
+      "id": 114,
+      "name": "الناس",
+      "name_simple": "An-Nas",
+      "revelation_place": "مكية",
+      "verses_count": 6,
+      "start_page": 604,
+      "end_page": 604,
+      "bismillah_pre": true
+    }
+  ],
+  "juzs": [
+    {
+      "juz_number": 1,
+      "name": "الجزء 1",
+      "start_page": 1
+    },
+    {
+      "juz_number": 2,
+      "name": "الجزء 2",
+      "start_page": 22
+    },
+    {
+      "juz_number": 3,
+      "name": "الجزء 3",
+      "start_page": 42
+    },
+    {
+      "juz_number": 4,
+      "name": "الجزء 4",
+      "start_page": 62
+    },
+    {
+      "juz_number": 5,
+      "name": "الجزء 5",
+      "start_page": 82
+    },
+    {
+      "juz_number": 6,
+      "name": "الجزء 6",
+      "start_page": 102
+    },
+    {
+      "juz_number": 7,
+      "name": "الجزء 7",
+      "start_page": 121
+    },
+    {
+      "juz_number": 8,
+      "name": "الجزء 8",
+      "start_page": 142
+    },
+    {
+      "juz_number": 9,
+      "name": "الجزء 9",
+      "start_page": 162
+    },
+    {
+      "juz_number": 10,
+      "name": "الجزء 10",
+      "start_page": 182
+    },
+    {
+      "juz_number": 11,
+      "name": "الجزء 11",
+      "start_page": 201
+    },
+    {
+      "juz_number": 12,
+      "name": "الجزء 12",
+      "start_page": 222
+    },
+    {
+      "juz_number": 13,
+      "name": "الجزء 13",
+      "start_page": 242
+    },
+    {
+      "juz_number": 14,
+      "name": "الجزء 14",
+      "start_page": 262
+    },
+    {
+      "juz_number": 15,
+      "name": "الجزء 15",
+      "start_page": 282
+    },
+    {
+      "juz_number": 16,
+      "name": "الجزء 16",
+      "start_page": 302
+    },
+    {
+      "juz_number": 17,
+      "name": "الجزء 17",
+      "start_page": 322
+    },
+    {
+      "juz_number": 18,
+      "name": "الجزء 18",
+      "start_page": 342
+    },
+    {
+      "juz_number": 19,
+      "name": "الجزء 19",
+      "start_page": 362
+    },
+    {
+      "juz_number": 20,
+      "name": "الجزء 20",
+      "start_page": 382
+    },
+    {
+      "juz_number": 21,
+      "name": "الجزء 21",
+      "start_page": 402
+    },
+    {
+      "juz_number": 22,
+      "name": "الجزء 22",
+      "start_page": 422
+    },
+    {
+      "juz_number": 23,
+      "name": "الجزء 23",
+      "start_page": 442
+    },
+    {
+      "juz_number": 24,
+      "name": "الجزء 24",
+      "start_page": 462
+    },
+    {
+      "juz_number": 25,
+      "name": "الجزء 25",
+      "start_page": 482
+    },
+    {
+      "juz_number": 26,
+      "name": "الجزء 26",
+      "start_page": 502
+    },
+    {
+      "juz_number": 27,
+      "name": "الجزء 27",
+      "start_page": 522
+    },
+    {
+      "juz_number": 28,
+      "name": "الجزء 28",
+      "start_page": 542
+    },
+    {
+      "juz_number": 29,
+      "name": "الجزء 29",
+      "start_page": 562
+    },
+    {
+      "juz_number": 30,
+      "name": "الجزء 30",
+      "start_page": 582
+    }
+  ]
+}

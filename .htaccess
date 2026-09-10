@@ -1,0 +1,265 @@
+# ============================================
+# SIRAJ AL-ATHAR - SECURITY & PERFORMANCE
+# Apache .htaccess Configuration v2.0
+# ============================================
+
+# ============================================
+# SECURITY HEADERS
+# ============================================
+
+<IfModule mod_headers.c>
+    # Content Security Policy (CSP)
+    # Prevents XSS, clickjacking, and code injection attacks
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://*.supabase.co https://api.aladhan.com https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"
+    
+    # X-Frame-Options - Prevents clickjacking
+    Header always set X-Frame-Options "DENY"
+    
+    # X-Content-Type-Options - Prevents MIME sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # X-XSS-Protection - Enables browser XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer-Policy - Controls referrer information
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions-Policy - Controls browser features
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+    
+    # Strict-Transport-Security (HSTS) - Forces HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Remove server information
+    Header always unset Server
+    Header unset X-Powered-By
+    
+    # Cross-Origin policies
+    Header always set Cross-Origin-Embedder-Policy "require-corp"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+</IfModule>
+
+# ============================================
+# FORCE HTTPS REDIRECT
+# ============================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Force HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+    
+    # Remove www (optional - uncomment if needed)
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+# ============================================
+# CACHING & PERFORMANCE
+# ============================================
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Default expiration
+    ExpiresDefault "access plus 1 month"
+    
+    # HTML (short cache)
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # CSS and JavaScript (1 year)
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    
+    # Images (1 year)
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Fonts (1 year)
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # Manifests & Service Workers (1 week)
+    ExpiresByType application/manifest+json "access plus 1 week"
+    ExpiresByType text/cache-manifest "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Cache-Control headers
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+    </FilesMatch>
+    
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    <FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # Service Worker should not be cached
+    <FilesMatch "service-worker\.js$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# ============================================
+# COMPRESSION (GZIP)
+# ============================================
+
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/x-web-app-manifest+json
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    
+    # Remove browser bugs
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# ============================================
+# MIME TYPES
+# ============================================
+
+<IfModule mod_mime.c>
+    # Web fonts
+    AddType font/woff2 .woff2
+    AddType font/woff .woff
+    AddType font/ttf .ttf
+    AddType font/otf .otf
+    AddType application/font-woff2 .woff2
+    
+    # Manifest
+    AddType application/manifest+json .webmanifest
+    AddType application/json .json
+    
+    # Images
+    AddType image/webp .webp
+    AddType image/svg+xml .svg .svgz
+    
+    # JavaScript
+    AddType application/javascript .js
+    AddType text/javascript .js
+    
+    # Encoding
+    AddDefaultCharset UTF-8
+    AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+</IfModule>
+
+# ============================================
+# DIRECTORY PROTECTION
+# ============================================
+
+# Disable directory browsing
+Options -Indexes
+
+# Block access to hidden files and directories
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Block access to sensitive files
+<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$">
+    Require all denied
+</FilesMatch>
+
+# Block access to backup and source files
+<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)$">
+    Require all denied
+</FilesMatch>
+
+# Protect .htaccess and .htpasswd
+<Files ".ht*">
+    Require all denied
+</Files>
+
+# ============================================
+# URL REWRITING
+# ============================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Remove trailing slash from non-directory URLs
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
+    
+    # Add trailing slash to directories
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !(.+)/$
+    RewriteRule ^(.+)$ $1/ [R=301,L]
+    
+    # Custom error pages
+    ErrorDocument 404 /404.html
+    ErrorDocument 403 /404.html
+    ErrorDocument 500 /404.html
+</IfModule>
+
+# ============================================
+# CROSS-ORIGIN RESOURCE SHARING (CORS)
+# ============================================
+
+<IfModule mod_headers.c>
+    # Allow fonts from Google Fonts
+    <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+# ============================================
+# ETags (for better caching)
+# ============================================
+
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
+
+# ============================================
+# PHP SECURITY (if PHP is used)
+# ============================================
+
+<IfModule mod_php7.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_flag expose_php Off
+    php_value session.cookie_httponly 1
+    php_value session.cookie_secure 1
+</IfModule>

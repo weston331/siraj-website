@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>القرآن الكريم - مصحف سِراج الأطهار التفاعلي</title>
+    <meta name="title" content="القرآن الكريم - مصحف سِراج الأطهار التفاعلي">
+    <meta name="description" content="تصفح واقرأ القرآن الكريم وفقاً لصفحات المصحف المطبوع (1-604) بالرسم العثماني، مع التلاوة الصوتية المتزامنة والتمييز البصري اللحظي للكلمات.">
+    <meta name="theme-color" content="#001A3F">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="سِراج الأطهار">
+    <meta property="og:title" content="القرآن الكريم - مصحف سِراج الأطهار التفاعلي">
+    <meta property="og:description" content="اقرأ واستمع للقرآن الكريم صفحة بصفحة بالرسم العثماني والتلاوة المتزامنة.">
+    <meta property="og:image" content="images/logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <link rel="alternate icon" type="image/png" href="images/logo.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=2.7">
+</head>
+<body class="quran-page-body theme-dark">
+    <div class="quran-app-wrapper">
+
+        <!-- Header Navbar -->
+        <header class="quran-navbar">
+            <div class="quran-nav-inner">
+                <div class="quran-nav-start">
+                    <a href="index.html" class="quran-back-home" title="العودة للرئيسية" aria-label="العودة للصفحة الرئيسية">
+                        <span class="material-symbols-rounded">arrow_forward</span>
+                    </a>
+                    <a href="index.html" class="quran-brand">
+                        <img src="images/logo.png" alt="سِراج الأطهار" class="quran-logo-img">
+                        <span class="quran-brand-text">سِراج الأطهار</span>
+                    </a>
+                    <div class="quran-active-meta" id="quran-active-meta">
+                        <span class="meta-surah" id="meta-surah-name">سورة الفاتحة</span>
+                        <span class="meta-dot">✦</span>
+                        <span class="meta-juz" id="meta-juz-name">الجزء الأول</span>
+                    </div>
+                </div>
+
+                <div class="quran-nav-actions">
+                    <!-- Index Drawer Button -->
+                    <button type="button" class="quran-action-btn" id="btn-open-index" aria-label="فتح فهرس السور والأجزاء">
+                        <span class="material-symbols-rounded">menu_book</span>
+                        <span class="btn-text">الفهرس</span>
+                    </button>
+
+                    <!-- Reciter Selector Button -->
+                    <div class="reciter-dropdown-wrapper">
+                        <button type="button" class="quran-action-btn" id="btn-toggle-reciter" aria-label="اختيار القارئ" aria-expanded="false">
+                            <span class="material-symbols-rounded">record_voice_over</span>
+                            <span class="btn-text" id="active-reciter-name">مشاري العفاسي</span>
+                            <span class="material-symbols-rounded drop-icon">arrow_drop_down</span>
+                        </button>
+                        <div class="reciter-menu" id="reciter-menu" role="menu">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Bookmark Button -->
+                    <button type="button" class="quran-action-btn icon-only" id="btn-bookmark" title="حفظ العلامة المرجعية" aria-label="حفظ علامة القراءة">
+                        <span class="material-symbols-rounded" id="bookmark-icon">bookmark_border</span>
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button type="button" class="quran-action-btn icon-only" id="btn-theme-toggle" title="تغيير مظهر القراءة (ليلي / ورقي / فاتح)" aria-label="تغيير المظهر">
+                        <span class="material-symbols-rounded" id="theme-icon">dark_mode</span>
+                    </button>
+
+                    <!-- Font Size Menu -->
+                    <div class="font-size-controls">
+                        <button type="button" class="font-size-btn" id="btn-font-dec" title="تصغير الخط" aria-label="تصغير الخط">
+                            <span class="material-symbols-rounded">text_decrease</span>
+                        </button>
+                        <button type="button" class="font-size-btn" id="btn-font-inc" title="تكبير الخط" aria-label="تكبير الخط">
+                            <span class="material-symbols-rounded">text_increase</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Secondary Page Navigation Bar -->
+        <nav class="quran-page-toolbar" aria-label="أدوات تصفح الصفحات">
+            <div class="toolbar-content">
+                <button type="button" class="page-nav-btn prev-btn" id="btn-prev-page" title="الصفحة السابقة (مفتاح السهم الأيمن)" aria-label="الانتقال للصفحة السابقة">
+                    <span class="material-symbols-rounded">chevron_right</span>
+                    <span class="btn-label">السابقة</span>
+                </button>
+
+                <div class="page-stepper">
+                    <span class="stepper-label">صفحة</span>
+                    <input type="number" id="page-input" class="page-number-input" min="1" max="604" value="1" aria-label="رقم الصفحة">
+                    <span class="stepper-total">من 604</span>
+                    <button type="button" class="page-go-btn" id="btn-go-page" title="انتقال">انتقال</button>
+                </div>
+
+                <div class="page-slider-wrapper">
+                    <input type="range" id="page-slider" class="page-slider" min="1" max="604" value="1" aria-label="شريط تمرير الصفحات" dir="rtl">
+                </div>
+
+                <button type="button" class="page-nav-btn next-btn" id="btn-next-page" title="الصفحة التالية (مفتاح السهم الأيسر)" aria-label="الانتقال للصفحة التالية">
+                    <span class="btn-label">التالية</span>
+                    <span class="material-symbols-rounded">chevron_left</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Quran Reader Canvas -->
+        <main class="quran-main-canvas" id="quran-main-canvas">
+
+            <!-- Loading Spinner -->
+            <div class="mushaf-loading" id="mushaf-loading" style="display: none;">
+                <span class="material-symbols-rounded loading-spinner">hourglass_top</span>
+                <p>جاري تحميل الصفحة المباركة من المصحف الشريف...</p>
+            </div>
+
+            <!-- Error State -->
+            <div class="mushaf-error" id="mushaf-error" style="display: none;">
+                <span class="material-symbols-rounded">wifi_off</span>
+                <h3>تعذر تحميل الصفحة</h3>
+                <p>يرجى التحقق من الاتصال بالإنترنت والمحاولة مجدداً.</p>
+                <button type="button" class="quran-retry-btn" id="btn-retry-page">
+                    <span class="material-symbols-rounded">refresh</span>
+                    <span>إعادة المحاولة</span>
+                </button>
+            </div>
+
+            <!-- Printed Mushaf Page Card -->
+            <div class="mushaf-page-container" id="mushaf-page-container">
+                <div class="mushaf-page-sheet" id="mushaf-page-sheet">
+                    <!-- Outer Decorative Golden Border -->
+                    <div class="mushaf-outer-frame">
+                        <div class="mushaf-corner corner-tr"></div>
+                        <div class="mushaf-corner corner-tl"></div>
+                        <div class="mushaf-corner corner-br"></div>
+                        <div class="mushaf-corner corner-bl"></div>
+
+                        <!-- Header Line of the Mushaf Page -->
+                        <header class="mushaf-page-header">
+                            <span class="page-header-item header-juz" id="header-juz-title">الجزء الأول</span>
+                            <span class="page-header-ornament">✦</span>
+                            <span class="page-header-item header-surah" id="header-surah-title">سورة الفاتحة</span>
+                        </header>
+
+                        <!-- Inner Page Body (where verses and lines flow) -->
+                        <article class="mushaf-page-body" id="mushaf-verses-area" aria-label="نص صفحة القرآن الكريم">
+                            <!-- Injected dynamically by quran.js -->
+                        </article>
+
+                        <!-- Footer Line of the Mushaf Page -->
+                        <footer class="mushaf-page-footer">
+                            <div class="mushaf-page-number" id="footer-page-number">
+                                <span class="num-ornament">﴿</span>
+                                <span id="current-page-display">1</span>
+                                <span class="num-ornament">﴾</span>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Persistent Bottom Sticky Audio Player Dock -->
+        <aside class="quran-audio-dock" id="quran-audio-dock" aria-label="مشغل التلاوة الصوتي">
+            <div class="dock-inner">
+                <!-- Audio Controls -->
+                <div class="dock-controls">
+                    <button type="button" class="dock-btn" id="btn-audio-prev" title="الآية السابقة" aria-label="الآية السابقة">
+                        <span class="material-symbols-rounded">skip_next</span>
+                    </button>
+
+                    <button type="button" class="dock-play-btn" id="btn-audio-play" title="تشغيل / إيقاف مؤقت" aria-label="تشغيل التلاوة">
+                        <span class="material-symbols-rounded" id="play-btn-icon">play_arrow</span>
+                    </button>
+
+                    <button type="button" class="dock-btn" id="btn-audio-next" title="الآية التالية" aria-label="الآية التالية">
+                        <span class="material-symbols-rounded">skip_previous</span>
+                    </button>
+
+                    <button type="button" class="dock-btn icon-small" id="btn-audio-repeat" title="تكرار الآية" aria-label="تكرار الآية" aria-pressed="false">
+                        <span class="material-symbols-rounded">repeat</span>
+                    </button>
+                </div>
+
+                <!-- Recitation Info & Progress -->
+                <div class="dock-info">
+                    <div class="dock-meta-row">
+                        <span class="dock-reciter-badge" id="dock-reciter-name">مشاري العفاسي</span>
+                        <span class="dock-verse-indicator" id="dock-verse-indicator">آية 1 من سورة الفاتحة</span>
+                        <span class="dock-time" id="dock-time-display">00:00 / 00:00</span>
+                    </div>
+
+                    <div class="dock-progress-wrapper" id="dock-progress-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <div class="dock-progress-track">
+                            <div class="dock-progress-fill" id="dock-progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dock Side Actions -->
+                <div class="dock-actions">
+                    <label class="dock-auto-switch" title="تقليب الصفحة تلقائياً عند انتهاء تلاوة آخر آية فيها">
+                        <input type="checkbox" id="auto-turn-page-toggle" checked>
+                        <span class="switch-label">تقليب تلقائي</span>
+                    </label>
+
+                    <button type="button" class="dock-btn icon-small" id="btn-audio-stop" title="إيقاف التلاوة" aria-label="إيقاف التلاوة">
+                        <span class="material-symbols-rounded">stop</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hidden Native Audio Element -->
+            <audio id="quran-native-audio" preload="auto"></audio>
+        </aside>
+
+        <!-- Index Drawer Modal (فهرس السور والأجزاء والعلامات) -->
+        <div class="quran-drawer-overlay" id="quran-drawer-overlay" aria-hidden="true"></div>
+        <aside class="quran-drawer" id="quran-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title-text">
+            <div class="drawer-header">
+                <div class="drawer-title-group">
+                    <span class="material-symbols-rounded">menu_book</span>
+                    <h2 id="drawer-title-text">فهرس القرآن الكريم</h2>
+                </div>
+                <button type="button" class="drawer-close-btn" id="btn-close-drawer" aria-label="إغلاق الفهرس">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+            </div>
+
+            <!-- Drawer Tabs -->
+            <div class="drawer-tabs">
+                <button type="button" class="drawer-tab active" data-tab="surahs">السور (114)</button>
+                <button type="button" class="drawer-tab" data-tab="juzs">الأجزاء (30)</button>
+                <button type="button" class="drawer-tab" data-tab="bookmarks">العلامات المرجعية</button>
+            </div>
+
+            <!-- Surahs Search Box -->
+            <div class="drawer-search-wrapper" id="drawer-search-box">
+                <span class="material-symbols-rounded search-icon">search</span>
+                <input type="text" id="surah-search-input" placeholder="ابحث عن اسم السورة..." aria-label="بحث في السور">
+                <button type="button" id="btn-clear-search" class="clear-search-btn" style="display: none;" aria-label="مسح البحث">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+            </div>
+
+            <!-- Drawer Content Panels -->
+            <div class="drawer-content-scroll">
+                <!-- Panel 1: Surahs List -->
+                <div class="drawer-panel active" id="panel-surahs">
+                    <div class="surahs-list" id="surahs-list-container">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+
+                <!-- Panel 2: Juzs List -->
+                <div class="drawer-panel" id="panel-juzs">
+                    <div class="juzs-list" id="juzs-list-container">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+
+                <!-- Panel 3: Bookmarks List -->
+                <div class="drawer-panel" id="panel-bookmarks">
+                    <div class="bookmarks-list" id="bookmarks-list-container">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Toast Feedback Notification -->
+        <div id="quran-toast" class="quran-toast" role="status" aria-live="polite">
+            <span class="material-symbols-rounded">bookmark</span>
+            <span id="quran-toast-msg">تم حفظ الصفحة في العلامات المرجعية</span>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="accessibility.js?v=2.1"></script>
+    <script src="quran.js?v=1.0"></script>
+</body>
+</html>

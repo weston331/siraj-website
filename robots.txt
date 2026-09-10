@@ -1,0 +1,38 @@
+# Robots.txt for Siraj Al-Athar
+# https://siraj-alathar.com
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow sensitive directories
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*utm_
+
+# Allow CSS and JS for better indexing
+Allow: /*.css
+Allow: /*.js
+Allow: /screenshots/
+Allow: /images/
+
+# Sitemaps
+Sitemap: https://siraj-alathar.com/sitemap.xml
+
+# Crawl-delay for specific bots (optional)
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 0
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
