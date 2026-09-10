@@ -16,7 +16,7 @@ let html = `<!DOCTYPE html>
     <meta name="description" content="فهرس شامل لكافة الأدعية والزيارات والمناجاة المأثورة عن النبي وأهل بيته الأطهار (عليهم السلام) بالتشكيل الكامل من تطبيق سِراج الأطهار.">
     <meta name="keywords" content="فهرس الأدعية, زيارات, مناجاة, دعاء كميل, دعاء الصباح, دعاء الأربعاء, مفاتيح الجنان, سراج الأطهار">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://siraj-alathar.com/duas-sitemap.html">
+    <link rel="canonical" href="https://siraj-website.wghom02.workers.dev/duas-sitemap.html">
     <meta name="theme-color" content="#001A3F">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -132,7 +132,7 @@ let html = `<!DOCTYPE html>
 
 prayersData.forEach(cat => {
     html += `
-        <section class="directory-category">
+        <section class="directory-category" id="cat-${cat.id}">
             <h2 class="category-heading">
                 <span class="material-symbols-rounded">auto_stories</span>
                 <span>${cat.name}</span>
@@ -142,7 +142,7 @@ prayersData.forEach(cat => {
 `;
     cat.prayers.forEach(p => {
         html += `                <li>
-                    <a href="prayer.html?id=${p.id}" class="prayer-item-link" title="${p.title} مكتوب بالتشكيل">
+                    <a href="prayers/${p.id}.html" class="prayer-item-link" title="${p.title} مكتوب بالتشكيل">
                         <span class="material-symbols-rounded">menu_book</span>
                         <span>${p.title}</span>
                     </a>

@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const DOMAIN = 'https://siraj-alathar.com';
+const DOMAIN = 'https://siraj-website.wghom02.workers.dev';
 const TODAY = new Date().toISOString().split('T')[0];
 
 // Load prayers data
@@ -94,7 +94,7 @@ categories.forEach(cat => {
         }
 
         urls.push({
-            loc: `${DOMAIN}/prayer.html?id=${prayer.id}`,
+            loc: `${DOMAIN}/prayers/${prayer.id}.html`,
             lastmod: TODAY,
             changefreq: changefreq,
             priority: priority,

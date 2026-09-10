@@ -18,7 +18,7 @@ Allow: /screenshots/
 Allow: /images/
 
 # Sitemaps
-Sitemap: https://siraj-alathar.com/sitemap.xml
+Sitemap: https://siraj-website.wghom02.workers.dev/sitemap.xml
 
 # Crawl-delay for specific bots (optional)
 User-agent: Googlebot

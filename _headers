@@ -39,6 +39,9 @@
 /*.js
   Cache-Control: public, max-age=31536000, immutable
 
+/prayers/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
 # Service Worker - No cache
 /service-worker.js
   Cache-Control: no-cache, no-store, must-revalidate

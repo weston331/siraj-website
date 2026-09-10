@@ -196,7 +196,7 @@
     const virtueSnippet = prayer.virtue && prayer.virtue.trim() ? ` مع فضل الدعاء ومصدره.` : '';
     const pageDesc = `قراءة ${prayer.title} مكتوباً بالتشكيل الكامل وبخط واضح من قسم ${catNameStr}.${virtueSnippet} عبر سِراج الأطهار: ${textSnippet}`;
 
-    const canonicalHref = `https://siraj-alathar.com/prayer.html?id=${encodeURIComponent(targetId)}`;
+    const canonicalHref = `https://siraj-website.wghom02.workers.dev/prayers/${encodeURIComponent(targetId)}.html`;
 
     // Description
     const descEl = document.getElementById('meta-description') || document.querySelector('meta[name="description"]');
@@ -261,10 +261,10 @@
             "publisher": {
               "@type": "Organization",
               "name": "سِراج الأطهار",
-              "url": "https://siraj-alathar.com/",
+              "url": "https://siraj-website.wghom02.workers.dev/",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://siraj-alathar.com/images/logo.png"
+                "url": "https://siraj-website.wghom02.workers.dev/images/logo.png"
               }
             },
             "author": {
@@ -280,19 +280,19 @@
                 "@type": "ListItem",
                 "position": 1,
                 "name": "الرئيسية",
-                "item": "https://siraj-alathar.com/"
+                "item": "https://siraj-website.wghom02.workers.dev/"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "مكتبة الأدعية",
-                "item": "https://siraj-alathar.com/#duas"
+                "item": "https://siraj-website.wghom02.workers.dev/duas-sitemap.html"
               },
               {
                 "@type": "ListItem",
                 "position": 3,
                 "name": catNameStr,
-                "item": "https://siraj-alathar.com/duas-sitemap.html"
+                "item": "https://siraj-website.wghom02.workers.dev/duas-sitemap.html"
               },
               {
                 "@type": "ListItem",
