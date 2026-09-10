@@ -1,7 +1,7 @@
 // Service Worker for Siraj Al-Athar Website
 // Version 2.0 - Progressive Web App Support
 
-const CACHE_VERSION = 'siraj-v2.0.0';
+const CACHE_VERSION = 'siraj-v2.1.0';
 const CACHE_NAME = `siraj-cache-${CACHE_VERSION}`;
 
 // Assets to cache immediately on install
@@ -10,6 +10,7 @@ const PRECACHE_ASSETS = [
     '/index.html',
     '/styles.css',
     '/script.js',
+    '/fonts/material-symbols-rounded.woff2',
     '/images/logo.svg',
     '/404.html',
     'https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap',
