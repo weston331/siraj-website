@@ -395,8 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const saved = localStorage.getItem('siraj_hijri_offset_v1');
             if (saved !== null) {
                 const o = parseInt(saved, 10);
-                if (!isNaN(o) && Math.abs(o) <= 3) return o;
-                // If invalid or stale huge offset, purge it
+                if (!isNaN(o) && Math.abs(o) <= 7) return o;
                 localStorage.removeItem('siraj_hijri_offset_v1');
             }
         } catch(e) {}
@@ -445,22 +444,53 @@ document.addEventListener('DOMContentLoaded', () => {
         const SUPABASE_URL = 'https://pwfqjhlzjslytgpvackl.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3ZnFqaGx6anNseXRncHZhY2tsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4NDM4ODAsImV4cCI6MjA5NzQxOTg4MH0.bDnmP7hEKrYYo6K3bOjQdgVDTj94UqZGnVsrsi8uClg';
         try {
-            // Check calendar_settings table for valid small offset only
             const sResp = await fetch(`${SUPABASE_URL}/rest/v1/calendar_settings?select=*`, {
                 headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
             });
             if (sResp.ok) {
                 const sData = await sResp.json();
                 if (sData && sData.length) {
+                    let determinedOffset = null;
+
+                    // 1. Direct offset setting (e.g. hijri_offset: +1, -1, 0)
                     const offRow = sData.find(s => s.key === 'hijri_offset' || s.key === 'offset' || s.key === 'تعديل_التاريخ');
-                    if (offRow && offRow.value !== undefined) {
+                    if (offRow && offRow.value !== undefined && String(offRow.value).trim() !== '') {
                         const num = parseInt(offRow.value, 10);
-                        if (!isNaN(num) && Math.abs(num) <= 3) {
-                            localStorage.setItem('siraj_hijri_offset_v1', String(num));
-                            updateIslamicDate();
-                            return;
+                        if (!isNaN(num) && Math.abs(num) <= 7) {
+                            determinedOffset = num;
                         }
                     }
+
+                    // 2. Target day number setting (e.g. hijri_day: 27)
+                    if (determinedOffset === null) {
+                        const dayRow = sData.find(s => s.key === 'hijri_day' || s.key === 'اليوم_الهجري');
+                        if (dayRow && dayRow.value !== undefined && String(dayRow.value).trim() !== '') {
+                            const targetDay = parseInt(dayRow.value, 10);
+                            if (!isNaN(targetDay) && targetDay >= 1 && targetDay <= 30) {
+                                const now = new Date();
+                                const natJD = gToJD(now.getFullYear(), now.getMonth() + 1, now.getDate());
+                                for (let diff = 0; diff <= 6; diff++) {
+                                    for (const sign of [-1, 1]) {
+                                        const cand = diff * sign;
+                                        const h = jdToH(natJD + cand);
+                                        if (h.day === targetDay) {
+                                            determinedOffset = cand;
+                                            break;
+                                        }
+                                    }
+                                    if (determinedOffset !== null) break;
+                                }
+                            }
+                        }
+                    }
+
+                    if (determinedOffset !== null) {
+                        localStorage.setItem('siraj_hijri_offset_v1', String(determinedOffset));
+                    } else {
+                        localStorage.removeItem('siraj_hijri_offset_v1');
+                    }
+                    updateIslamicDate();
+                    return;
                 }
             }
         } catch(e) {}

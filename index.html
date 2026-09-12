@@ -271,13 +271,23 @@
                             function gToJD(y,m,d){if(m<=2){y--;m+=12}var A=Math.floor(y/100),B=2-A+Math.floor(A/4);return Math.floor(365.25*(y+4716))+Math.floor(30.6001*(m+1))+d+B-1524.5}
                             function jdToH(jd){jd=Math.floor(jd)+.5;var z=jd-1948439.5,c=Math.floor((z-1)/10631),r=z-10631*c,n=Math.floor((r-1)/354),d2=r-354*n,yr=30*c+n+1,q=Math.floor((d2-1)/29.5),mo=Math.min(q+1,12);var d=d2-Math.floor(29.5*mo-29);if(d<1)d=1;return{year:yr,month:mo,day:d}}
                             function arN(n){return String(n).replace(/\d/g,function(d){return'٠١٢٣٤٥٦٧٨٩'[d]})}
-                            var hijriStr = '';
+                            var savedOffset = 0;
                             try {
-                                var f = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' });
-                                hijriStr = f.format(now);
-                            } catch(e) {}
-                            if (!hijriStr || hijriStr.indexOf('19') !== -1 || hijriStr.indexOf('20') !== -1) {
-                                var h = jdToH(gToJD(now.getFullYear(), now.getMonth()+1, now.getDate()));
+                                var so = localStorage.getItem('siraj_hijri_offset_v1');
+                                if (so !== null) {
+                                    var p = parseInt(so, 10);
+                                    if (!isNaN(p) && Math.abs(p) <= 7) savedOffset = p;
+                                }
+                            } catch(e){}
+                            var hijriStr = '';
+                            if (savedOffset === 0) {
+                                try {
+                                    var f = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' });
+                                    hijriStr = f.format(now);
+                                } catch(e) {}
+                            }
+                            if (!hijriStr || savedOffset !== 0) {
+                                var h = jdToH(gToJD(now.getFullYear(), now.getMonth()+1, now.getDate()) + savedOffset);
                                 hijriStr = WD[now.getDay()] + ' ' + arN(h.day) + ' ' + HM[h.month-1] + ' ' + arN(h.year) + 'هـ';
                             }
                             var gregStr = now.getDate() + ' ' + GM[now.getMonth()] + ' ' + now.getFullYear() + 'م';

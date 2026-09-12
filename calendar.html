@@ -330,7 +330,7 @@ try {
   const savedOffset = localStorage.getItem('siraj_hijri_offset_v1');
   if (savedOffset !== null) {
     const p = parseInt(savedOffset, 10) || 0;
-    if (Math.abs(p) <= 3) hijriOffset = p;
+    if (Math.abs(p) <= 7) hijriOffset = p;
     else localStorage.removeItem('siraj_hijri_offset_v1');
   }
 } catch(e) {}
@@ -453,12 +453,31 @@ function renderSDP(){
   `).join('');
 }
 
-function resolveHijriOffset(rawVal, keyName = '') {
-  if (rawVal === undefined || rawVal === null) return 0;
-  const str = String(rawVal).trim();
-  const num = parseInt(str, 10);
-  if (isNaN(num)) return 0;
-  if (Math.abs(num) <= 3) return num;
+function resolveHijriSettings(settingsRows) {
+  if (!settingsRows || !settingsRows.length) return 0;
+
+  // 1. Direct offset (e.g. hijri_offset: +1, -1, 0)
+  const offRow = settingsRows.find(s => s.key === 'hijri_offset' || s.key === 'offset' || s.key === 'تعديل_التاريخ');
+  if (offRow && offRow.value !== undefined && String(offRow.value).trim() !== '') {
+    const num = parseInt(offRow.value, 10);
+    if (!isNaN(num) && Math.abs(num) <= 7) return num;
+  }
+
+  // 2. Target day number (e.g. hijri_day: 27)
+  const dayRow = settingsRows.find(s => s.key === 'hijri_day' || s.key === 'اليوم_الهجري');
+  if (dayRow && dayRow.value !== undefined && String(dayRow.value).trim() !== '') {
+    const targetDay = parseInt(dayRow.value, 10);
+    if (!isNaN(targetDay) && targetDay >= 1 && targetDay <= 30) {
+      const natJD = gToJD(tG.getFullYear(), tG.getMonth() + 1, tG.getDate());
+      for (let diff = 0; diff <= 6; diff++) {
+        for (const sign of [-1, 1]) {
+          const cand = diff * sign;
+          const h = jdToH(natJD + cand);
+          if (h.day === targetDay) return cand;
+        }
+      }
+    }
+  }
   return 0;
 }
 
@@ -483,11 +502,8 @@ async function fetchSupabaseEvents() {
         if (sResp.ok) settingsRows = await sResp.json();
       }
       if (settingsRows && settingsRows.length) {
-        const offRow = settingsRows.find(s => s.key === 'hijri_offset' || s.key === 'offset' || s.key === 'hijri_day' || s.key === 'تعديل_التاريخ');
-        if (offRow && offRow.value !== undefined) {
-          const calculatedOffset = resolveHijriOffset(offRow.value, offRow.key);
-          applyHijriOffset(calculatedOffset);
-        }
+        const calculatedOffset = resolveHijriSettings(settingsRows);
+        applyHijriOffset(calculatedOffset);
       }
     } catch (settingErr) {}
 
