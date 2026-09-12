@@ -1350,7 +1350,7 @@ function initDailyVerse() {
             }
             if (linkEl) {
                 const pageNum = item.page || 1;
-                linkEl.href = 'quran.html?page=' + encodeURIComponent(pageNum);
+                linkEl.href = '/quran?page=' + encodeURIComponent(pageNum);
                 linkEl.setAttribute('aria-label', `تلاوة آية من ${item.surah || 'القرآن الكريم'} في المصحف الشريف صفحة ${pageNum}`);
             }
         }
@@ -1438,7 +1438,7 @@ function initDailyWisdom() {
                 titleEl.textContent = item.title || 'نهج البلاغة';
             }
             if (linkEl) {
-                linkEl.href = 'prayer.html?id=' + encodeURIComponent(item.id);
+                linkEl.href = '/prayer?id=' + encodeURIComponent(item.id);
                 linkEl.setAttribute('aria-label', 'قراءة ' + (item.title || 'الحكمة') + ' في صفحة خاصة');
             }
         }
@@ -1479,7 +1479,7 @@ function initDailyWisdom() {
             };
             if (textEl && !textEl.textContent.trim()) textEl.textContent = fallback.text;
             if (titleEl) titleEl.textContent = fallback.title;
-            if (linkEl) linkEl.href = 'prayer.html?id=1';
+            if (linkEl) linkEl.href = '/prayer?id=1';
         });
 }
 
@@ -1555,7 +1555,7 @@ function initDailyPrayer() {
     if (dayEl) dayEl.textContent = todayData.day;
     if (titleEl) titleEl.textContent = todayData.title;
     if (previewEl) previewEl.textContent = todayData.preview;
-    cardEl.href = 'prayer.html?id=' + encodeURIComponent(todayData.id);
+    cardEl.href = '/prayer?id=' + encodeURIComponent(todayData.id);
     cardEl.setAttribute('aria-label', 'قراءة ' + todayData.title + ' في صفحة خاصة');
 }
 
@@ -1636,7 +1636,7 @@ function updateDynamicTaqeeb() {
     if (titleEl && titleEl.textContent !== taqeeb.title) {
         titleEl.textContent = taqeeb.title;
     }
-    ribbonEl.href = 'prayer.html?id=' + encodeURIComponent(taqeeb.id);
+    ribbonEl.href = '/prayer?id=' + encodeURIComponent(taqeeb.id);
     ribbonEl.setAttribute('aria-label', 'قراءة ' + taqeeb.name + ' في صفحة خاصة');
 }
 

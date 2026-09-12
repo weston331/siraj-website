@@ -1,6 +1,7 @@
 /**
  * Comprehensive Sitemap Generator for Siraj Al-Athar
  * Generates an SEO-optimized sitemap.xml with all 650+ prayers, Quran, Calendar, and Core pages
+ * Using clean canonical URLs
  */
 
 const fs = require('fs');
@@ -29,7 +30,7 @@ function escapeXml(unsafe) {
 
 const urls = [];
 
-// 1. Core Pages
+// 1. Core Pages (clean URLs)
 urls.push({
     loc: `${DOMAIN}/`,
     lastmod: TODAY,
@@ -38,41 +39,41 @@ urls.push({
 });
 
 urls.push({
-    loc: `${DOMAIN}/calendar.html`,
+    loc: `${DOMAIN}/calendar`,
     lastmod: TODAY,
     changefreq: 'daily',
     priority: '0.95'
 });
 
 urls.push({
-    loc: `${DOMAIN}/quran.html`,
+    loc: `${DOMAIN}/quran`,
     lastmod: TODAY,
     changefreq: 'weekly',
     priority: '0.95'
 });
 
 urls.push({
-    loc: `${DOMAIN}/duas-sitemap.html`,
+    loc: `${DOMAIN}/duas-sitemap`,
     lastmod: TODAY,
     changefreq: 'weekly',
     priority: '0.85'
 });
 
 urls.push({
-    loc: `${DOMAIN}/privacy-policy.html`,
+    loc: `${DOMAIN}/privacy-policy`,
     lastmod: TODAY,
     changefreq: 'monthly',
     priority: '0.3'
 });
 
 urls.push({
-    loc: `${DOMAIN}/terms.html`,
+    loc: `${DOMAIN}/terms`,
     lastmod: TODAY,
     changefreq: 'monthly',
     priority: '0.3'
 });
 
-// 2. All 650 Prayers & Ziyarat
+// 2. All 650 Prayers & Ziyarat (clean URLs)
 categories.forEach(cat => {
     cat.prayers.forEach(prayer => {
         let priority = '0.75';
@@ -94,7 +95,7 @@ categories.forEach(cat => {
         }
 
         urls.push({
-            loc: `${DOMAIN}/prayers/${prayer.id}.html`,
+            loc: `${DOMAIN}/prayers/${prayer.id}`,
             lastmod: TODAY,
             changefreq: changefreq,
             priority: priority,

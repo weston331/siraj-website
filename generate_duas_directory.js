@@ -1,23 +1,105 @@
 /**
  * Generates duas-sitemap.html - A fully accessible, crawler-friendly HTML index of all 650+ prayers
+ * With complete SEO, Open Graph, Twitter Cards, and Schema.org JSON-LD
  */
 
 const fs = require('fs');
 const path = require('path');
 
+const DOMAIN = 'https://siraj-website.wghom02.workers.dev';
 const prayersData = JSON.parse(fs.readFileSync(path.join(__dirname, 'prayers_data.json'), 'utf8'));
+
+let totalPrayers = 0;
+prayersData.forEach(cat => totalPrayers += cat.prayers.length);
+
+const pageTitle = `فهرس الأدعية والزيارات الشريفة (650 دعاء ومناجاة) | سِراج الأطهار`;
+const pageDesc = `فهرس شامل لكافة الأدعية والزيارات والمناجاة المأثورة عن النبي وأهل بيته الأطهار (عليهم السلام) بالتشكيل الكامل والخط الواضح من تطبيق سِراج الأطهار.`;
+
+const schemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${DOMAIN}/duas-sitemap#page`,
+      "url": `${DOMAIN}/duas-sitemap`,
+      "name": pageTitle,
+      "description": pageDesc,
+      "inLanguage": "ar",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "سِراج الأطهار",
+        "url": `${DOMAIN}/`
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": totalPrayers,
+        "itemListElement": prayersData.slice(0, 10).flatMap((cat, cIdx) => 
+          cat.prayers.slice(0, 5).map((p, pIdx) => ({
+            "@type": "ListItem",
+            "position": (cIdx * 5) + pIdx + 1,
+            "name": p.title,
+            "url": `${DOMAIN}/prayers/${p.id}`
+          }))
+        )
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": `${DOMAIN}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "فهرس الأدعية",
+          "item": `${DOMAIN}/duas-sitemap`
+        }
+      ]
+    }
+  ]
+};
 
 let html = `<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فهرس الأدعية والزيارات الشريفة - سِراج الأطهار</title>
-    <meta name="description" content="فهرس شامل لكافة الأدعية والزيارات والمناجاة المأثورة عن النبي وأهل بيته الأطهار (عليهم السلام) بالتشكيل الكامل من تطبيق سِراج الأطهار.">
+    <title>${pageTitle}</title>
+    <meta name="title" content="${pageTitle}">
+    <meta name="description" content="${pageDesc}">
     <meta name="keywords" content="فهرس الأدعية, زيارات, مناجاة, دعاء كميل, دعاء الصباح, دعاء الأربعاء, مفاتيح الجنان, سراج الأطهار">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://siraj-website.wghom02.workers.dev/duas-sitemap.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="${DOMAIN}/duas-sitemap">
     <meta name="theme-color" content="#001A3F">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="سِراج الأطهار">
+    <meta property="og:url" content="${DOMAIN}/duas-sitemap">
+    <meta property="og:title" content="${pageTitle}">
+    <meta property="og:description" content="${pageDesc}">
+    <meta property="og:image" content="${DOMAIN}/images/logo.png">
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="${DOMAIN}/duas-sitemap">
+    <meta name="twitter:title" content="${pageTitle}">
+    <meta name="twitter:description" content="${pageDesc}">
+    <meta name="twitter:image" content="${DOMAIN}/images/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <link rel="alternate icon" type="image/png" href="images/logo.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+${JSON.stringify(schemaGraph, null, 2)}
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,12 +192,12 @@ let html = `<!DOCTYPE html>
 <body class="prayer-page-body">
     <header class="prayer-navbar">
         <div class="container prayer-navbar-content">
-            <a href="index.html" class="prayer-nav-brand" aria-label="سِراج الأطهار - الصفحة الرئيسية">
+            <a href="/" class="prayer-nav-brand" aria-label="سِراج الأطهار - الصفحة الرئيسية">
                 <img src="images/logo.png" alt="شعار سِراج الأطهار" class="brand-logo-img">
                 <span class="brand-title-text">سِراج الأطهار</span>
             </a>
             <div class="prayer-nav-actions">
-                <a href="index.html#duas" class="prayer-back-btn">
+                <a href="/#duas" class="prayer-back-btn">
                     <span class="material-symbols-rounded">arrow_forward</span>
                     <span>الرئيسية</span>
                 </a>
@@ -142,7 +224,7 @@ prayersData.forEach(cat => {
 `;
     cat.prayers.forEach(p => {
         html += `                <li>
-                    <a href="prayers/${p.id}.html" class="prayer-item-link" title="${p.title} مكتوب بالتشكيل">
+                    <a href="prayers/${p.id}" class="prayer-item-link" title="${p.title} مكتوب بالتشكيل">
                         <span class="material-symbols-rounded">menu_book</span>
                         <span>${p.title}</span>
                     </a>
@@ -169,4 +251,4 @@ html += `
 `;
 
 fs.writeFileSync(path.join(__dirname, 'duas-sitemap.html'), html, 'utf8');
-console.log('Successfully created duas-sitemap.html with all 650 prayers!');
+console.log('Successfully generated duas-sitemap.html with clean URLs and complete SEO!');

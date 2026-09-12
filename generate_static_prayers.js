@@ -74,7 +74,7 @@ prayersData.forEach(cat => {
         const virtueText = prayer.virtue && prayer.virtue.trim() ? prayer.virtue.trim() : '';
         const metaDesc = `قراءة ${prayer.title} مكتوباً بالتشكيل الكامل بخط عربي واضح من ${cat.name}. ${virtueText ? virtueText + ' - ' : ''}عبر سِراج الأطهار: ${snippet}`;
         
-        const canonicalUrl = `${DOMAIN}/prayers/${prayer.id}.html`;
+        const canonicalUrl = `${DOMAIN}/prayers/${prayer.id}`;
         const logoUrl = `${DOMAIN}/images/logo.png`;
 
         // Format prayer text paragraphs
@@ -139,13 +139,13 @@ prayersData.forEach(cat => {
                             "@type": "ListItem",
                             "position": 2,
                             "name": "فهرس الأدعية",
-                            "item": `${DOMAIN}/duas-sitemap.html`
+                            "item": `${DOMAIN}/duas-sitemap`
                         },
                         {
                             "@type": "ListItem",
                             "position": 3,
                             "name": cat.name,
-                            "item": `${DOMAIN}/duas-sitemap.html#cat-${cat.id}`
+                            "item": `${DOMAIN}/duas-sitemap#cat-${cat.id}`
                         },
                         {
                             "@type": "ListItem",
@@ -296,17 +296,17 @@ ${JSON.stringify(schemaGraph, null, 2)}
         <!-- Top Navigation -->
         <header class="prayer-navbar">
             <div class="container prayer-navbar-content">
-                <a href="../index.html" class="prayer-nav-brand" aria-label="سِراج الأطهار - الصفحة الرئيسية">
+                <a href="/" class="prayer-nav-brand" aria-label="سِراج الأطهار - الصفحة الرئيسية">
                     <img src="../images/logo.png" alt="شعار سِراج الأطهار" class="brand-logo-img">
                     <span class="brand-title-text">سِراج الأطهار</span>
                 </a>
 
                 <div class="prayer-nav-actions">
-                    <a href="../duas-sitemap.html" class="prayer-back-btn" title="فهرس الـ 650 دعاء">
+                    <a href="/duas-sitemap" class="prayer-back-btn" title="فهرس الـ 650 دعاء">
                         <span class="material-symbols-rounded">menu_book</span>
                         <span>فهرس الأدعية (650)</span>
                     </a>
-                    <a href="../index.html" class="prayer-back-btn" title="الرئيسية">
+                    <a href="/" class="prayer-back-btn" title="الرئيسية">
                         <span class="material-symbols-rounded">home</span>
                         <span>الرئيسية</span>
                     </a>
@@ -319,9 +319,9 @@ ${JSON.stringify(schemaGraph, null, 2)}
 
             <!-- Breadcrumbs -->
             <nav class="prayer-breadcrumbs" aria-label="مسار التنقل">
-                <a href="../index.html">الرئيسية</a>
+                <a href="/">الرئيسية</a>
                 <span class="bread-sep">/</span>
-                <a href="../duas-sitemap.html">مكتبة الأدعية</a>
+                <a href="/duas-sitemap">مكتبة الأدعية</a>
                 <span class="bread-sep">/</span>
                 <span class="bread-cat">${escapeHtml(cat.name)}</span>
                 <span class="bread-sep">/</span>
@@ -399,7 +399,7 @@ ${paragraphs}
             <!-- Previous and Next Navigation -->
             <nav class="prayer-nav-grid" aria-label="التنقل بين أدعية ${escapeHtml(cat.name)}">
                 ${prevPrayer ? `
-                <a href="${prevPrayer.id}.html" class="prayer-nav-card" aria-label="الدعاء السابق: ${escapeHtml(prevPrayer.title)}">
+                <a href="${prevPrayer.id}" class="prayer-nav-card" aria-label="الدعاء السابق: ${escapeHtml(prevPrayer.title)}">
                     <div class="prayer-nav-icon">
                         <span class="material-symbols-rounded">arrow_forward</span>
                     </div>
@@ -411,7 +411,7 @@ ${paragraphs}
                 ` : '<div></div>'}
 
                 ${nextPrayer ? `
-                <a href="${nextPrayer.id}.html" class="prayer-nav-card" aria-label="الدعاء التالي: ${escapeHtml(nextPrayer.title)}">
+                <a href="${nextPrayer.id}" class="prayer-nav-card" aria-label="الدعاء التالي: ${escapeHtml(nextPrayer.title)}">
                     <div class="prayer-nav-meta" style="text-align: left;">
                         <span class="prayer-nav-label">الدعاء التالي</span>
                         <p class="prayer-nav-title">${escapeHtml(nextPrayer.title)}</p>
@@ -446,7 +446,7 @@ ${paragraphs}
                 </h2>
                 <div class="prayer-related-grid">
                     ${related.map(r => `
-                    <a href="${r.id}.html" class="related-card" title="قراءة ${escapeHtml(r.title)} كامل بالتشكيل">
+                    <a href="${r.id}" class="related-card" title="قراءة ${escapeHtml(r.title)} كامل بالتشكيل">
                         <span class="material-symbols-rounded">menu_book</span>
                         <h4>${escapeHtml(r.title)}</h4>
                     </a>
