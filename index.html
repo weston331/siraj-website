@@ -256,11 +256,38 @@
                 <!-- Islamic Date Badge (Clickable to Calendar) -->
                 <a href="calendar.html" class="islamic-date-badge" title="انقر لفتح التقويم الهجري الكامل والمناسبات" aria-label="عرض التقويم الهجري ومراحله">
                     <span class="date-pulse"></span>
-                    <span class="date-text hijri-date" id="hijri-date">الإثنين 18 ربيع الثاني 1446هـ</span>
+                    <span class="date-text hijri-date" id="hijri-date">السبت 1 ربيع الثاني 1448هـ</span>
                     <span class="date-divider">|</span>
-                    <span class="date-text gregorian-date" id="gregorian-date">21 أكتوبر 2024م</span>
+                    <span class="date-text gregorian-date" id="gregorian-date">12 سبتمبر 2026م</span>
                     <span class="material-symbols-rounded date-icon">calendar_month</span>
                 </a>
+                <script>
+                    (function(){
+                        try {
+                            var now = new Date();
+                            var GM = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+                            var WD = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+                            var HM = ['محرم','صفر','ربيع الأوّل','ربيع الثاني','جمادى الأولى','جمادى الثانية','رجب','شعبان','رمضان','شوّال','ذو القعدة','ذو الحجة'];
+                            function gToJD(y,m,d){if(m<=2){y--;m+=12}var A=Math.floor(y/100),B=2-A+Math.floor(A/4);return Math.floor(365.25*(y+4716))+Math.floor(30.6001*(m+1))+d+B-1524.5}
+                            function jdToH(jd){jd=Math.floor(jd)+.5;var z=jd-1948439.5,c=Math.floor((z-1)/10631),r=z-10631*c,n=Math.floor((r-1)/354),d2=r-354*n,yr=30*c+n+1,q=Math.floor((d2-1)/29.5),mo=Math.min(q+1,12);var d=d2-Math.floor(29.5*mo-29);if(d<1)d=1;return{year:yr,month:mo,day:d}}
+                            function arN(n){return String(n).replace(/\d/g,function(d){return'٠١٢٣٤٥٦٧٨٩'[d]})}
+                            var hijriStr = '';
+                            try {
+                                var f = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' });
+                                hijriStr = f.format(now);
+                            } catch(e) {}
+                            if (!hijriStr || hijriStr.indexOf('19') !== -1 || hijriStr.indexOf('20') !== -1) {
+                                var h = jdToH(gToJD(now.getFullYear(), now.getMonth()+1, now.getDate()));
+                                hijriStr = WD[now.getDay()] + ' ' + arN(h.day) + ' ' + HM[h.month-1] + ' ' + arN(h.year) + 'هـ';
+                            }
+                            var gregStr = now.getDate() + ' ' + GM[now.getMonth()] + ' ' + now.getFullYear() + 'م';
+                            var hd = document.getElementById('hijri-date');
+                            var gd = document.getElementById('gregorian-date');
+                            if (hd) hd.textContent = hijriStr;
+                            if (gd) gd.textContent = gregStr;
+                        } catch(e){}
+                    })();
+                </script>
                 
                 <!-- Prayer Time Countdown & Location Badge -->
                 <div class="prayer-time-widget">
@@ -1075,7 +1102,7 @@
     <script src="duas.js?v=1.1" defer></script>
     <!-- Daily Quranic Verses -->
     <script src="daily_verses.js?v=1.0" defer></script>
-    <script src="script.js?v=3.1" defer></script>
+    <script src="script.js?v=3.2" defer></script>
     <!-- Data Stores: loaded after page render to avoid blocking -->
     <script defer>
         // Load heavy data files non-blocking after page is interactive

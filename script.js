@@ -393,7 +393,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function getHijriOffset() {
         try {
             const saved = localStorage.getItem('siraj_hijri_offset_v1');
-            if (saved !== null) return parseInt(saved, 10) || 0;
+            if (saved !== null) {
+                const o = parseInt(saved, 10);
+                if (!isNaN(o) && Math.abs(o) <= 3) return o;
+                // If invalid or stale huge offset, purge it
+                localStorage.removeItem('siraj_hijri_offset_v1');
+            }
         } catch(e) {}
         return 0;
     }
@@ -401,13 +406,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateIslamicDate = () => {
         const now = new Date();
         const offset = getHijriOffset();
-        const jd = gToJD(now.getFullYear(), now.getMonth() + 1, now.getDate()) + offset;
-        const h = jdToH(jd);
+        
+        let hijriFormatted = '';
+        if (offset === 0) {
+            try {
+                const f = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    weekday: 'long'
+                });
+                hijriFormatted = f.format(now);
+            } catch(e) {}
+        }
+
+        if (!hijriFormatted || offset !== 0) {
+            const jd = gToJD(now.getFullYear(), now.getMonth() + 1, now.getDate()) + offset;
+            const h = jdToH(jd);
+            hijriFormatted = `${WD[now.getDay()]} ${arN(h.day)} ${HM[h.month - 1]} ${arN(h.year)}هـ`;
+        }
 
         // Update Hijri date in Hero
         const hijriDateElement = document.getElementById('hijri-date');
         if (hijriDateElement) {
-            hijriDateElement.textContent = `${WD[now.getDay()]} ${arN(h.day)} ${HM[h.month - 1]} ${arN(h.year)}هـ`;
+            hijriDateElement.textContent = hijriFormatted;
         }
 
         // Update Gregorian date in Hero
@@ -423,53 +445,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const SUPABASE_URL = 'https://pwfqjhlzjslytgpvackl.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3ZnFqaGx6anNseXRncHZhY2tsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4NDM4ODAsImV4cCI6MjA5NzQxOTg4MH0.bDnmP7hEKrYYo6K3bOjQdgVDTj94UqZGnVsrsi8uClg';
         try {
-            // Check calendar_settings table
+            // Check calendar_settings table for valid small offset only
             const sResp = await fetch(`${SUPABASE_URL}/rest/v1/calendar_settings?select=*`, {
                 headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
             });
             if (sResp.ok) {
                 const sData = await sResp.json();
                 if (sData && sData.length) {
-                    const offRow = sData.find(s => s.key === 'hijri_offset' || s.key === 'offset' || s.key === 'hijri_day' || s.key === 'تعديل_التاريخ');
+                    const offRow = sData.find(s => s.key === 'hijri_offset' || s.key === 'offset' || s.key === 'تعديل_التاريخ');
                     if (offRow && offRow.value !== undefined) {
-                        const val = offRow.value;
-                        const num = parseInt(val, 10);
-                        if (!isNaN(num)) {
-                            let calculated = num;
-                            const now = new Date();
-                            const isTargetDay = (num >= 1 && num <= 30 && !String(val).startsWith('+') && !String(val).startsWith('-') && Math.abs(num) > 5) || (offRow.key && offRow.key.includes('day'));
-                            if (isTargetDay) {
-                                const nat = jdToH(gToJD(now.getFullYear(), now.getMonth() + 1, now.getDate()));
-                                calculated = num - nat.day;
-                            }
-                            localStorage.setItem('siraj_hijri_offset_v1', String(calculated));
+                        const num = parseInt(offRow.value, 10);
+                        if (!isNaN(num) && Math.abs(num) <= 3) {
+                            localStorage.setItem('siraj_hijri_offset_v1', String(num));
                             updateIslamicDate();
                             return;
                         }
-                    }
-                }
-            }
-
-            // Also check hijri_events table for setting row
-            const eResp = await fetch(`${SUPABASE_URL}/rest/v1/hijri_events?title=like.*تعديل*&select=*`, {
-                headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
-            });
-            if (eResp.ok) {
-                const eData = await eResp.json();
-                if (eData && eData.length) {
-                    const r = eData[0];
-                    const raw = r.description || r.importance_level;
-                    const num = parseInt(raw, 10);
-                    if (!isNaN(num)) {
-                        let calculated = num;
-                        const now = new Date();
-                        const isTargetDay = (num >= 1 && num <= 30 && !String(raw).startsWith('+') && !String(raw).startsWith('-') && Math.abs(num) > 5);
-                        if (isTargetDay) {
-                            const nat = jdToH(gToJD(now.getFullYear(), now.getMonth() + 1, now.getDate()));
-                            calculated = num - nat.day;
-                        }
-                        localStorage.setItem('siraj_hijri_offset_v1', String(calculated));
-                        updateIslamicDate();
                     }
                 }
             }

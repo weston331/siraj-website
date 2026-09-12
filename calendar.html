@@ -328,7 +328,11 @@ function arN(n){return String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d])}
 let hijriOffset = 0;
 try {
   const savedOffset = localStorage.getItem('siraj_hijri_offset_v1');
-  if (savedOffset !== null) hijriOffset = parseInt(savedOffset, 10) || 0;
+  if (savedOffset !== null) {
+    const p = parseInt(savedOffset, 10) || 0;
+    if (Math.abs(p) <= 3) hijriOffset = p;
+    else localStorage.removeItem('siraj_hijri_offset_v1');
+  }
 } catch(e) {}
 
 const tG = new Date();
@@ -454,13 +458,8 @@ function resolveHijriOffset(rawVal, keyName = '') {
   const str = String(rawVal).trim();
   const num = parseInt(str, 10);
   if (isNaN(num)) return 0;
-  const isTargetDay = (num >= 1 && num <= 30 && !str.startsWith('+') && !str.startsWith('-') && Math.abs(num) > 5) ||
-                      keyName.includes('day') || keyName.includes('يوم');
-  if (isTargetDay) {
-    const nat = jdToH(gToJD(tG.getFullYear(), tG.getMonth() + 1, tG.getDate()));
-    return num - nat.day;
-  }
-  return num;
+  if (Math.abs(num) <= 3) return num;
+  return 0;
 }
 
 // ================================================================
